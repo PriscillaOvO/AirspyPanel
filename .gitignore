@@ -1,0 +1,17 @@
+/work/
+/outputs/
+/bin/
+/obj/
+/.vs/
+*.user
+*.suo
+*.settings.xml
+*.log
+*-error.txt
+self-test.txt
+layout-test.txt
+test-vrs.xml*
+*.panel-backup-*
+*.panel-tmp
+preview-*.png
+!docs/preview-*.png
