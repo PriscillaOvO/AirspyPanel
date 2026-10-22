@@ -1,0 +1,293 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources language="fr-FR">
+  <text key="s000">
+
+1. Décodeur : </text>
+  <text key="s001">
+
+Zéro avion peut être normal. Carte et API sont indépendantes.</text>
+  <text key="s002">
+   Configuration : </text>
+  <text key="s003">
+2. Processus de réception : </text>
+  <text key="s004">
+3. Données Beast : </text>
+  <text key="s005">
+4. Configuration VRS : </text>
+  <text key="s006">
+5. API Web : </text>
+  <text key="s007">
+6. Source : </text>
+  <text key="s008">
+Choisissez un résultat et enregistrez.</text>
+  <text key="s009">
+Limite atteinte ; précisez le dossier.</text>
+  <text key="s010">
+Vérifiés : </text>
+  <text key="s011">  · Local 127.0.0.1:</text>
+  <text key="s012"> trouvés
+</text>
+  <text key="s013"> · VRS </text>
+  <text key="s014">.</text>
+  <text key="s015"> dossiers…</text>
+  <text key="s016"> dossiers ; ignorés : </text>
+  <text key="s017"> est utilisé. Changez le port et reconfigurez VRS.</text>
+  <text key="s018"> s</text>
+  <text key="s019">1–60, défaut 4. Plus élevé : plus de CPU.</text>
+  <text key="s020">24 MHz exige un R2 compatible. Continuer ?</text>
+  <text key="s021">Airspy R0 / R2 / Mini
+Arrêtez avant de modifier les réglages.</text>
+  <text key="s022">Console Airspy</text>
+  <text key="s023">Beast · niveaux du signal</text>
+  <text key="s024">Beast · avions vus depuis 60 s</text>
+  <text key="s025">Beast connecté</text>
+  <text key="s026">Connexion Beast établie</text>
+  <text key="s027">Connexion Beast perdue</text>
+  <text key="s028">Compactage USB</text>
+  <text key="s029">Démarrage VRS</text>
+  <text key="s030">VRS en ligne</text>
+  <text key="s031">VRS renvoie un autre récepteur.</text>
+  <text key="s032">VRS pas encore vérifié</text>
+  <text key="s033">VRS ne s’est pas fermé. Vérifiez sa fenêtre ; pas d’arrêt forcé.</text>
+  <text key="s034">VRS configuré : Beast / 127.0.0.1:</text>
+  <text key="s035">API VRS</text>
+  <text key="s036">Source VRS</text>
+  <text key="s037">Impossible de fermer VRS. Quittez VRS et réessayez.</text>
+  <text key="s038">VRS hors ligne</text>
+  <text key="s039">VRS démarre. Actualisation automatique.</text>
+  <text key="s040">VRS à vérifier</text>
+  <text key="s041">État détaillé VRS</text>
+  <text key="s042">Données VRS disponibles</text>
+  <text key="s043">Échec de vérification VRS : </text>
+  <text key="s044">Configuration VRS invalide ; rien modifié.</text>
+  <text key="s045">Avions VRS</text>
+  <text key="s046">auto règle le gain ; manuel 0–21. Un excès peut saturer.</text>
+  <text key="s047">auto ou manuel 0–21. Plus élevé n’est pas toujours mieux.</text>
+  <text key="s048">‹ Retour</text>
+  <text key="s049">● Beast connecté · réception</text>
+  <text key="s050">● Beast connecté · en attente</text>
+  <text key="s051">. Vérifiez matériel, USB, pilote et autres applis SDR.</text>
+  <text key="s052">. Vérifiez serveur VRS, port et URL.</text>
+  <text key="s053"> ×10k</text>
+  <text key="s054">Différent : attendu </text>
+  <text key="s055">Erreurs seules</text>
+  <text key="s056">Enregistrer</text>
+  <text key="s057">Enregistrer</text>
+  <text key="s058">Niveaux relatifs décodés, pas un spectre ni le bruit. ICAO DF11/17 uniques, expiration après 60 s.</text>
+  <text key="s059">Info</text>
+  <text key="s060">Arrêt en cours</text>
+  <text key="s061">Arrêter décodeur et VRS ; garder la carte ouverte.</text>
+  <text key="s062">Tout arrêter</text>
+  <text key="s063">Décodeur arrêté et VRS fermé. Carte ouverte.</text>
+  <text key="s064">Tous niveaux</text>
+  <text key="s065">Événements</text>
+  <text key="s066">Fermer AirspyPanel</text>
+  <text key="s067">Que faire à la fermeture ?</text>
+  <text key="s068">À la fermeture</text>
+  <text key="s069">Conforme (ID </text>
+  <text key="s070">Sortie brute</text>
+  <text key="s071">Sauvegarde : </text>
+  <text key="s072">Aide des paramètres</text>
+  <text key="s073">Plusieurs VRS trouvés. Choisissez-en un.</text>
+  <text key="s074">Plusieurs décodeurs trouvés. Choisissez-en un.</text>
+  <text key="s075">Annuler</text>
+  <text key="s076">Annuler la recherche</text>
+  <text key="s077">Modifiable dans Réglages → Apparence et fermeture.</text>
+  <text key="s078">Vérification en arrière-plan.</text>
+  <text key="s079">Commande de lancement</text>
+  <text key="s080">Commande : </text>
+  <text key="s081">Indicatif</text>
+  <text key="s082">Indicatif : </text>
+  <text key="s083">Derniers</text>
+  <text key="s084">En ligne · autre source</text>
+  <text key="s085">En ligne · config. à vérifier</text>
+  <text key="s086">Carte et connexion</text>
+  <text key="s087">URL de la carte</text>
+  <text key="s088">Carte non vérifiée (service peut-être arrêté)</text>
+  <text key="s089">URL de carte invalide.</text>
+  <text key="s090">API de carte vérifiée</text>
+  <text key="s091">Pas des données VRS. Vérifiez l’URL.</text>
+  <text key="s092">Gain : auto ou 0–21.</text>
+  <text key="s093">Sauvegarder, configurer Beast et lancer VRS ; redémarrage normal si nécessaire.</text>
+  <text key="s094">Copier les détails</text>
+  <text key="s095">Apparence et fermeture</text>
+  <text key="s096">Thème</text>
+  <text key="s097">Thème clair, sombre ou système en haut.</text>
+  <text key="s098">Exporter</text>
+  <text key="s099">Compactage USB (-p), pas l’alimentation d’antenne. Dans le doute, désactivez.</text>
+  <text key="s100">Prêt · Airspy R0 / R2 / Mini</text>
+  <text key="s101">Ouvrir</text>
+  <text key="s102">Niveau maximal</text>
+  <text key="s103">Source enregistrée (non vérifiée)</text>
+  <text key="s104">Arrêté</text>
+  <text key="s105">Réception arrêtée, matériel libéré.</text>
+  <text key="s106">Carte ouverte : </text>
+  <text key="s107">Trouvé</text>
+  <text key="s108">ADS-B SPY fonctionne déjà. Fermez-le pour éviter un conflit.</text>
+  <text key="s109">Vérifiés : </text>
+  <text key="s110">Terminé</text>
+  <text key="s111">Connecté, sans messages. Vérifiez l’antenne.</text>
+  <text key="s112">Connecté, réception de messages</text>
+  <text key="s113">Niveau moyen</text>
+  <text key="s114">Démarrer</text>
+  <text key="s115">En attente</text>
+  <text key="s116">Réglages recommandés</text>
+  <text key="s117">Récepteur absent des réglages locaux.</text>
+  <text key="s118">Ouvrir la carte</text>
+  <text key="s119">Carte des avions</text>
+  <text key="s120">Zone de notification indisponible ; fenêtre ouverte.</text>
+  <text key="s121">Plusieurs récepteurs. Choisissez dans les réglages.</text>
+  <text key="s122">Messages</text>
+  <text key="s123">Messages / s</text>
+  <text key="s124">Messages : </text>
+  <text key="s125">API indisponible ; source non vérifiée</text>
+  <text key="s126">Page AdGuard reçue. Vérifiez les règles locales de filtrage.</text>
+  <text key="s127">JSON invalide. Vérifiez l’URL VRS.</text>
+  <text key="s128">Branchez le matériel et démarrez. Paramètres dans Réglages.</text>
+  <text key="s129">Réglages de réception</text>
+  <text key="s130">Réception et applications</text>
+  <text key="s131">Aide à la réception</text>
+  <text key="s132">Gain du récepteur</text>
+  <text key="s133">Échec de réception</text>
+  <text key="s134">Contrôle de réception</text>
+  <text key="s135">Récepteur</text>
+  <text key="s136">Démarrage du récepteur</text>
+  <text key="s137">Réglages différents. Configurez et lancez VRS.</text>
+  <text key="s138">Récepteur conforme : 127.0.0.1:</text>
+  <text key="s139">Démarrage impossible : </text>
+  <text key="s140">Panneau prêt. Compteurs et niveaux issus de messages Beast réels.</text>
+  <text key="s141">Valeurs remplies. Enregistrez. Chemins et URL inchangés.</text>
+  <text key="s142">Réduire dans la zone de notification</text>
+  <text key="s143">Réduire poursuit la réception. Quitter arrête décodeur et VRS.</text>
+  <text key="s144">Réduction impossible : </text>
+  <text key="s145">Réduire et continuer la réception</text>
+  <text key="s146">Connecté, aucun avion
+Vérifiez l’antenne et la réception</text>
+  <text key="s147">Port de données</text>
+  <text key="s148">Port : même port Beast, défaut 30005.
+
+Gain : auto ou 0–21. Un excès sature.
+
+Échantillonnage : 12/20/24 MHz, pas 1090 MHz. 24 MHz exige un R2 compatible. Pas de MLAT autonome.
+
+Filtre : défaut 4, plage 1–60. Plus élevé utilise plus de CPU.
+
+USB (-p) : transport, pas alimentation d’antenne. Désactiver dans le doute.</text>
+  <text key="s149">Journaux texte|*.txt</text>
+  <text key="s150">Afficher le panneau</text>
+  <text key="s151">Aucune donnée</text>
+  <text key="s152">Aucun avion
+Branchez un récepteur et démarrez</text>
+  <text key="s153">Niveau relatif maximal sur 3 s ; effacé sans messages.</text>
+  <text key="s154">Moyenne sur 3 s ; 0–255 converti en 0–100 %. Ni dBm calibrés ni bruit.</text>
+  <text key="s155">ICAO uniques DF11/17 sur 60 s. VRS peut compter différemment.</text>
+  <text key="s156">Arrêté ; démarrez la réception</text>
+  <text key="s157">VirtualRadar.exe introuvable. Définissez son chemin.</text>
+  <text key="s158">airspy_adsb.exe introuvable. Définissez son chemin.</text>
+  <text key="s159">Aucun récepteur compatible ; non vérifié.</text>
+  <text key="s160">Introuvable ; recherchez ou sélectionnez</text>
+  <text key="s161">Source non choisie ; ID réel </text>
+  <text key="s162">Format inconnu.</text>
+  <text key="s163">Échantillonnage inconnu.</text>
+  <text key="s164">Déconnecté</text>
+  <text key="s165">Configuration locale absente ; Web vérifié séparément.</text>
+  <text key="s166">Port Beast : 1024–65535. Reconfigurez VRS après changement.</text>
+  <text key="s167">Messages de session</text>
+  <text key="s168">Échec de recherche : </text>
+  <text key="s169">Recherche annulée. Réglages non enregistrés.</text>
+  <text key="s170">Voir détails VRS</text>
+  <text key="s171">Vérifié · VRS en ligne</text>
+  <text key="s172">Vérifié à : </text>
+  <text key="s173">Réception</text>
+  <text key="s174">Recherche des programmes…</text>
+  <text key="s175">Toujours demander</text>
+  <text key="s176">Clair</text>
+  <text key="s177">Sombre</text>
+  <text key="s178">Effacer</text>
+  <text key="s179">Niveau</text>
+  <text key="s180">OK</text>
+  <text key="s181">Programmes et carte</text>
+  <text key="s182">Recherche terminée. Vérification API…</text>
+  <text key="s183">Chemins et URL de carte</text>
+  <text key="s184">Port </text>
+  <text key="s185">Port : 1024–65535.</text>
+  <text key="s186">Port fermé ; démarrez la réception</text>
+  <text key="s187">Port actif ; panneau non connecté</text>
+  <text key="s188">En attente de données</text>
+  <text key="s189">En attente de vérification VRS.</text>
+  <text key="s190">Attente du décodeur / reconnexion</text>
+  <text key="s191">Compact</text>
+  <text key="s192">Automatique</text>
+  <text key="s193">Choix automatique</text>
+  <text key="s194">Choix automatique si unique, sinon choisissez.</text>
+  <text key="s195">Recherche des dossiers habituels, pas tout le disque.</text>
+  <text key="s196">Détecter les programmes</text>
+  <text key="s197">Auto omet -m. 24 MHz exige un R2 compatible. Pas la fréquence 1090 MHz ni du MLAT autonome.</text>
+  <text key="s198">Décodeurs : </text>
+  <text key="s199">EXE du décodeur</text>
+  <text key="s200">Décodeur actif ou en cours d’arrêt.</text>
+  <text key="s201">Échec du décodeur. Consultez le journal.</text>
+  <text key="s202">Le fichier doit être airspy_adsb.exe.</text>
+  <text key="s203">Échec du lancement du décodeur.</text>
+  <text key="s204">Décodeur terminé, code </text>
+  <text key="s205">Décodeur : </text>
+  <text key="s206">Filtre du décodeur</text>
+  <text key="s207">Avertissement</text>
+  <text key="s208">Alertes et erreurs</text>
+  <text key="s209">Gardez le ciel connecté.</text>
+  <text key="s210">Mémoriser mon choix</text>
+  <text key="s211">Mode de l’appareil</text>
+  <text key="s212">Réglages</text>
+  <text key="s213">Branchez Airspy R0 / R2 / Mini et une antenne 1090 MHz.</text>
+  <text key="s214">Saisissez un port valide.</text>
+  <text key="s215">Saisissez un filtre valide.</text>
+  <text key="s216">Sélectionnez airspy_adsb.exe.</text>
+  <text key="s217">Lecture des données</text>
+  <text key="s218">Fin de sortie : </text>
+  <text key="s219">Lecture des réglages impossible : </text>
+  <text key="s220">Délai dépassé</text>
+  <text key="s221">Dernière réception</text>
+  <text key="s222">Dernière réception : </text>
+  <text key="s223">Système</text>
+  <text key="s224">Chemins et URL enregistrés.</text>
+  <text key="s225">Format de sortie</text>
+  <text key="s226">Filtre : 1–60.</text>
+  <text key="s227">Durée </text>
+  <text key="s228">Actif (PID </text>
+  <text key="s229">Journal</text>
+  <text key="s230">Connexion</text>
+  <text key="s231">Connexion au port </text>
+  <text key="s232">Connexion refusée ou service arrêté</text>
+  <text key="s233">Quitter l’application</text>
+  <text key="s234">Quitter et arrêter décodeur et VRS</text>
+  <text key="s235">Choisir VRS</text>
+  <text key="s236">Choisissez un dossier Airspy ou VRS</text>
+  <text key="s237">Choisir un dossier</text>
+  <text key="s238">Choisir le décodeur</text>
+  <text key="s239">Connexion au port Beast local </text>
+  <text key="s240">Réglages enregistrés.</text>
+  <text key="s241">Configurer et lancer VRS</text>
+  <text key="s242">Lecture de configuration impossible : </text>
+  <text key="s243">Échantillonnage
+(MHz)</text>
+  <text key="s244">Erreur</text>
+  <text key="s245">Avions proches · 60 s</text>
+  <text key="s246">Même port et format Beast. Défaut 30005 ; le numéro ne définit pas le format.</text>
+  <text key="s247">Le panneau démarre. Réessayez bientôt.</text>
+  <text key="s248">Réglages du panneau</text>
+  <text key="s249">Avions · 60 s</text>
+  <text key="s250">Liste des avions</text>
+  <text key="s251">Altitude</text>
+  <text key="s252">Réception avancée</text>
+  <text key="s253">, réel </text>
+  <text key="s254">, récepteur Airspy Panel.</text>
+  <text key="s255"> ; choisissez un récepteur dans Réglages</text>
+  <text key="s256"> ; vérifiez source et réglages VRS</text>
+  <text key="Language">Langue</text>
+  <text key="Welcome">Premiers pas</text>
+  <text key="WelcomeHelp">Installez séparément le décodeur Airspy et VRS. Téléchargez depuis les sites officiels, détectez puis enregistrez les chemins.</text>
+  <text key="AirspyDownload">Télécharger Airspy</text>
+  <text key="VrsDownload">Télécharger VRS</text>
+  <text key="ExitFailure">VRS ne s’est pas fermé. Oui : réessayer. Non : quitter seulement le panneau. Annuler : revenir.</text>
+  <text key="Demo">Données de démonstration · aucune réception réelle</text>
+</resources>

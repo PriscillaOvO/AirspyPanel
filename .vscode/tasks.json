@@ -1,0 +1,28 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build AirspyPanel",
+      "type": "process",
+      "command": "powershell.exe",
+      "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}\\build.ps1"],
+      "group": {"kind": "build", "isDefault": true},
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "Run AirspyPanel",
+      "type": "process",
+      "command": "${workspaceFolder}\\bin\\AirspyPanel.exe",
+      "dependsOn": "Build AirspyPanel",
+      "problemMatcher": []
+    },
+    {
+      "label": "Test AirspyPanel",
+      "type": "process",
+      "command": "${workspaceFolder}\\bin\\AirspyPanel.exe",
+      "args": ["--self-test"],
+      "dependsOn": "Build AirspyPanel",
+      "problemMatcher": []
+    }
+  ]
+}

@@ -2,6 +2,7 @@
 /outputs/
 /bin/
 /obj/
+/.migration-backup/
 /.vs/
 *.user
 *.suo

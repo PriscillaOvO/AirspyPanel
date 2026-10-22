@@ -1,0 +1,293 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources language="ja-JP">
+  <text key="s000">
+
+1. デコーダー：</text>
+  <text key="s001">
+
+機数が 0 でも正常です。地図とデータ API は別です。</text>
+  <text key="s002">
+   設定ファイル：</text>
+  <text key="s003">
+2. 受信プロセス：</text>
+  <text key="s004">
+3. Beast データ：</text>
+  <text key="s005">
+4. VRS 設定：</text>
+  <text key="s006">
+5. Web API：</text>
+  <text key="s007">
+6. 受信ソース：</text>
+  <text key="s008">
+候補を選択して保存してください。</text>
+  <text key="s009">
+検索上限です。対象を絞ってください。</text>
+  <text key="s010">
+確認済み：</text>
+  <text key="s011">  · ローカル 127.0.0.1:</text>
+  <text key="s012"> 件
+</text>
+  <text key="s013"> · VRS </text>
+  <text key="s014"> 件。</text>
+  <text key="s015"> フォルダー…</text>
+  <text key="s016"> フォルダー、スキップ：</text>
+  <text key="s017"> は使用中です。ポートを変更し VRS を再設定。</text>
+  <text key="s018"> 秒</text>
+  <text key="s019">1～60、既定値 4。高い値は CPU 負荷が増えます。</text>
+  <text key="s020">24 MHz は対応 R2 専用です。続行しますか？</text>
+  <text key="s021">Airspy R0 / R2 / Mini
+設定変更前に停止してください。</text>
+  <text key="s022">Airspy コンソール</text>
+  <text key="s023">Beast · 信号レベル</text>
+  <text key="s024">Beast 受信 · 過去 60 秒の航空機</text>
+  <text key="s025">Beast 接続済み</text>
+  <text key="s026">Beast 接続が確立しました</text>
+  <text key="s027">Beast 接続が切れました</text>
+  <text key="s028">USB ビットパック</text>
+  <text key="s029">VRS 起動中</text>
+  <text key="s030">VRS オンライン</text>
+  <text key="s031">VRS はオンラインですが受信機が異なります。</text>
+  <text key="s032">VRS 未確認</text>
+  <text key="s033">VRS が終了していません。画面を確認。強制終了はしません。</text>
+  <text key="s034">VRS 設定：Beast / 127.0.0.1:</text>
+  <text key="s035">VRS API</text>
+  <text key="s036">VRS 受信ソース</text>
+  <text key="s037">VRS を終了できません。手動で終了して再試行。</text>
+  <text key="s038">VRS 未接続</text>
+  <text key="s039">VRS 起動中。状態は自動更新されます。</text>
+  <text key="s040">VRS 未確認</text>
+  <text key="s041">VRS 状態詳細</text>
+  <text key="s042">VRS データ正常</text>
+  <text key="s043">VRS Web 確認失敗：</text>
+  <text key="s044">VRS 設定が不正です。変更していません。</text>
+  <text key="s045">VRS 航空機</text>
+  <text key="s046">auto は自動、手動は 0～21。過大な利得は信号を歪ませます。</text>
+  <text key="s047">auto または手動 0～21。高いほど良いとは限りません。</text>
+  <text key="s048">‹ 戻る</text>
+  <text key="s049">● Beast 接続済み · 受信中</text>
+  <text key="s050">● Beast 接続済み · 待機中</text>
+  <text key="s051">。機器、USB、ドライバーと他アプリを確認。</text>
+  <text key="s052">。VRS Web サーバー、ポートと URL を確認。</text>
+  <text key="s053">万</text>
+  <text key="s054">不一致：期待値 </text>
+  <text key="s055">エラーのみ</text>
+  <text key="s056">検出結果を保存</text>
+  <text key="s057">設定を保存</text>
+  <text key="s058">復号報文の相対値で、スペクトルやノイズではありません。DF11/17 ICAO を集計、60 秒で失効。</text>
+  <text key="s059">情報</text>
+  <text key="s060">停止中</text>
+  <text key="s061">デコーダーとローカル VRS を停止。地図タブは残ります。</text>
+  <text key="s062">すべて停止</text>
+  <text key="s063">デコーダーと VRS を停止。地図タブは残ります。</text>
+  <text key="s064">すべてのレベル</text>
+  <text key="s065">主要イベント</text>
+  <text key="s066">AirspyPanel を閉じる</text>
+  <text key="s067">閉じるときの動作</text>
+  <text key="s068">閉じるとき</text>
+  <text key="s069">一致（ID </text>
+  <text key="s070">生の出力</text>
+  <text key="s071">設定バックアップ：</text>
+  <text key="s072">設定の説明</text>
+  <text key="s073">複数の VRS を検出。選択してください。</text>
+  <text key="s074">複数のデコーダーを検出。選択してください。</text>
+  <text key="s075">キャンセル</text>
+  <text key="s076">検索を中止</text>
+  <text key="s077">設定 → 外観と終了動作で変更できます。</text>
+  <text key="s078">バックグラウンドで確認中。</text>
+  <text key="s079">起動コマンド</text>
+  <text key="s080">起動コマンド：</text>
+  <text key="s081">コールサイン</text>
+  <text key="s082">コールサイン：</text>
+  <text key="s083">最新へ</text>
+  <text key="s084">接続中 · ソース不一致</text>
+  <text key="s085">接続中 · 設定未確認</text>
+  <text key="s086">地図と接続</text>
+  <text key="s087">地図 URL</text>
+  <text key="s088">地図未確認（サービス停止の可能性）</text>
+  <text key="s089">地図 URL が不正です。</text>
+  <text key="s090">地図 API 確認済み</text>
+  <text key="s091">VRS 航空機データではありません。URL を確認。</text>
+  <text key="s092">利得は auto または 0～21。</text>
+  <text key="s093">設定をバックアップ、Beast を設定し VRS を起動。実行中なら正常に再起動。</text>
+  <text key="s094">詳細をコピー</text>
+  <text key="s095">外観と終了動作</text>
+  <text key="s096">テーマ</text>
+  <text key="s097">上部でライト、ダーク、システムを選択。</text>
+  <text key="s098">エクスポート</text>
+  <text key="s099">USB 転送の -p 設定。アンテナ給電ではありません。不明ならオフ。</text>
+  <text key="s100">準備完了 · Airspy R0 / R2 / Mini</text>
+  <text key="s101">展開</text>
+  <text key="s102">ピークレベル</text>
+  <text key="s103">保存済みソース（未確認）</text>
+  <text key="s104">停止済み</text>
+  <text key="s105">受信停止、機器を解放しました。</text>
+  <text key="s106">地図を開きました：</text>
+  <text key="s107">検出済み</text>
+  <text key="s108">ADS-B SPY 実行中。競合を避けるため終了してください。</text>
+  <text key="s109">確認済み：</text>
+  <text key="s110">終了</text>
+  <text key="s111">接続済み、報文なし。アンテナを確認。</text>
+  <text key="s112">接続済み・報文受信中</text>
+  <text key="s113">平均レベル</text>
+  <text key="s114">受信開始</text>
+  <text key="s115">待機</text>
+  <text key="s116">推奨設定に戻す</text>
+  <text key="s117">選択した受信機が設定にありません。</text>
+  <text key="s118">地図を開く</text>
+  <text key="s119">航空機地図を開く</text>
+  <text key="s120">トレイが使えないため画面を残します。</text>
+  <text key="s121">複数の受信機。設定で選択してください。</text>
+  <text key="s122">報文</text>
+  <text key="s123">報文 / 秒</text>
+  <text key="s124">報文：</text>
+  <text key="s125">API 未接続、ソース未確認</text>
+  <text key="s126">AdGuard ページが返されました。フィルター設定を確認。</text>
+  <text key="s127">JSON 不正。VRS の URL か確認。</text>
+  <text key="s128">機器を接続して受信開始。パラメーターは設定で変更。</text>
+  <text key="s129">受信設定</text>
+  <text key="s130">受信とアプリ設定</text>
+  <text key="s131">受信設定の説明</text>
+  <text key="s132">受信利得</text>
+  <text key="s133">受信失敗</text>
+  <text key="s134">受信操作</text>
+  <text key="s135">受信機</text>
+  <text key="s136">受信機を起動中</text>
+  <text key="s137">受信機設定が不一致。VRS を設定・起動してください。</text>
+  <text key="s138">受信機一致：127.0.0.1:</text>
+  <text key="s139">パネル起動エラー：</text>
+  <text key="s140">準備完了。機数と信号表は実際の Beast 報文から集計。</text>
+  <text key="s141">推奨値を入力。保存してください。パスと URL は未変更。</text>
+  <text key="s142">トレイに格納</text>
+  <text key="s143">トレイ格納は受信継続。終了はデコーダーと VRS を停止。</text>
+  <text key="s144">トレイ格納失敗：</text>
+  <text key="s145">トレイに格納して受信継続</text>
+  <text key="s146">接続済み、航空機なし
+アンテナと受信環境を確認</text>
+  <text key="s147">データポート</text>
+  <text key="s148">ポート：VRS と同じ Beast ポート、既定 30005。
+
+利得：auto または 0～21。過大な利得は歪みの原因。
+
+サンプル：12/20/24 MHz は受信周波数 1090 MHz とは別。24 MHz は対応 R2 専用。単独 MLAT は不可。
+
+フィルター：既定 4、範囲 1～60。高いほど CPU 負荷増。
+
+USB パック (-p)：転送方式であり給電ではありません。不明ならオフ。</text>
+  <text key="s149">テキストログ|*.txt</text>
+  <text key="s150">パネルを表示</text>
+  <text key="s151">データなし</text>
+  <text key="s152">航空機なし
+受信機を接続して開始</text>
+  <text key="s153">直近 3 秒の最大相対レベル。報文なしならクリア。</text>
+  <text key="s154">直近 3 秒の平均。0～255 を 0～100% に換算。dBm やノイズではありません。</text>
+  <text key="s155">直近 60 秒の DF11/17 ICAO 数。VRS と集計が異なる場合があります。</text>
+  <text key="s156">未起動。受信を開始</text>
+  <text key="s157">VirtualRadar.exe なし。設定で指定してください。</text>
+  <text key="s158">airspy_adsb.exe なし。設定で指定してください。</text>
+  <text key="s159">一致する受信機なし。未確認。</text>
+  <text key="s160">未検出。検索または選択</text>
+  <text key="s161">ソース未選択、実際の ID </text>
+  <text key="s162">不明なデータ形式。</text>
+  <text key="s163">不明なサンプルモード。</text>
+  <text key="s164">未接続</text>
+  <text key="s165">ローカル設定なし。Web 状態は別途確認。</text>
+  <text key="s166">Beast ポート：1024～65535。変更後は VRS 再設定。</text>
+  <text key="s167">今回の報文数</text>
+  <text key="s168">検索失敗：</text>
+  <text key="s169">検索中止。設定は未保存。</text>
+  <text key="s170">VRS 詳細を表示</text>
+  <text key="s171">確認完了 · VRS オンライン</text>
+  <text key="s172">確認日時：</text>
+  <text key="s173">受信中</text>
+  <text key="s174">プログラム検索中…</text>
+  <text key="s175">毎回確認</text>
+  <text key="s176">ライト</text>
+  <text key="s177">ダーク</text>
+  <text key="s178">クリア</text>
+  <text key="s179">レベル</text>
+  <text key="s180">OK</text>
+  <text key="s181">プログラムと地図</text>
+  <text key="s182">検索完了。地図 API 確認中…</text>
+  <text key="s183">プログラムパスと地図 URL</text>
+  <text key="s184">ポート </text>
+  <text key="s185">ポートは 1024～65535。</text>
+  <text key="s186">待受なし。受信を開始</text>
+  <text key="s187">ポート待受中、パネル未接続</text>
+  <text key="s188">受信データ待機中</text>
+  <text key="s189">VRS 確認待ち。</text>
+  <text key="s190">デコーダー待機 / 再接続</text>
+  <text key="s191">簡易</text>
+  <text key="s192">自動</text>
+  <text key="s193">自動選択</text>
+  <text key="s194">一意なら自動選択、複数なら選択。</text>
+  <text key="s195">一般的な場所のみ検索。ドライブ全体は対象外。</text>
+  <text key="s196">プログラムを自動検出</text>
+  <text key="s197">自動は -m なし。24 MHz は対応 R2 専用。1090 MHz とは別、単独 MLAT 不可。</text>
+  <text key="s198">デコーダー：</text>
+  <text key="s199">デコーダー EXE</text>
+  <text key="s200">デコーダーは実行中または停止中。</text>
+  <text key="s201">デコーダー起動失敗。ログを確認。</text>
+  <text key="s202">ファイル名は airspy_adsb.exe。</text>
+  <text key="s203">デコーダー起動失敗。</text>
+  <text key="s204">デコーダー終了コード：</text>
+  <text key="s205">デコーダー：</text>
+  <text key="s206">デコードフィルター</text>
+  <text key="s207">警告</text>
+  <text key="s208">警告とエラー</text>
+  <text key="s209">空と、つながろう。</text>
+  <text key="s210">選択を記憶</text>
+  <text key="s211">機器モード</text>
+  <text key="s212">設定</text>
+  <text key="s213">Airspy R0 / R2 / Mini と 1090 MHz アンテナを接続。</text>
+  <text key="s214">有効なポートを入力。</text>
+  <text key="s215">有効なフィルター値を入力。</text>
+  <text key="s216">airspy_adsb.exe を選択。</text>
+  <text key="s217">データ読み取り</text>
+  <text key="s218">出力終了：</text>
+  <text key="s219">設定読み込み失敗：</text>
+  <text key="s220">タイムアウト</text>
+  <text key="s221">最終受信</text>
+  <text key="s222">最終受信：</text>
+  <text key="s223">システム</text>
+  <text key="s224">パスと地図 URL を保存。</text>
+  <text key="s225">出力形式</text>
+  <text key="s226">フィルターは 1～60。</text>
+  <text key="s227">稼働時間 </text>
+  <text key="s228">実行中（PID </text>
+  <text key="s229">実行ログ</text>
+  <text key="s230">接続</text>
+  <text key="s231">データポート接続中 </text>
+  <text key="s232">接続拒否またはサービス停止</text>
+  <text key="s233">アプリを終了</text>
+  <text key="s234">終了してデコーダーと VRS を停止</text>
+  <text key="s235">VRS を選択</text>
+  <text key="s236">Airspy または VRS フォルダーを選択</text>
+  <text key="s237">フォルダー選択</text>
+  <text key="s238">デコーダー選択</text>
+  <text key="s239">ローカル Beast ポート接続中 </text>
+  <text key="s240">設定を保存しました。</text>
+  <text key="s241">VRS を設定・起動</text>
+  <text key="s242">設定読み込み失敗：</text>
+  <text key="s243">サンプルモード
+(MHz)</text>
+  <text key="s244">エラー</text>
+  <text key="s245">周辺航空機 · 60 秒</text>
+  <text key="s246">VRS と同じポートと Beast 形式。既定 30005。ポート番号で形式は決まりません。</text>
+  <text key="s247">起動中です。少し待って再試行。</text>
+  <text key="s248">パネル設定</text>
+  <text key="s249">航空機 · 60 秒</text>
+  <text key="s250">航空機一覧</text>
+  <text key="s251">高度</text>
+  <text key="s252">受信の詳細設定</text>
+  <text key="s253">、実際 </text>
+  <text key="s254">、受信機 Airspy Panel。</text>
+  <text key="s255">。設定で受信機を選択</text>
+  <text key="s256">。ソースと VRS 設定を確認</text>
+  <text key="Language">言語</text>
+  <text key="Welcome">はじめに</text>
+  <text key="WelcomeHelp">Airspy デコーダーと VRS は別途必要です。公式サイトで入手後、検索してパスを保存。</text>
+  <text key="AirspyDownload">Airspy 公式ダウンロード</text>
+  <text key="VrsDownload">VRS 公式ダウンロード</text>
+  <text key="ExitFailure">VRS を終了できません。はい：再試行。いいえ：VRS を残してパネル終了。キャンセル：戻る。</text>
+  <text key="Demo">デモデータ · 実際の受信記録なし</text>
+</resources>

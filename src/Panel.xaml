@@ -1,170 +1,418 @@
-<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
- Title="Airspy ADS-B 控制台 · 2.0" Width="1180" Height="820"
- Background="#101927" Foreground="#E9F1FA" FontFamily="Microsoft YaHei UI"
+ Title="AirspyPanel · Live Aero" Width="1180" Height="820"
+ Background="{DynamicResource BrushEAF4FA}" Foreground="{DynamicResource Brush284A62}" FontFamily="Microsoft YaHei UI"
  FontSize="12" WindowStartupLocation="CenterScreen" UseLayoutRounding="True"
- SnapsToDevicePixels="True">
+ SnapsToDevicePixels="True" ToolTipService.InitialShowDelay="450" ToolTipService.ShowDuration="30000">
  <Window.Resources>
-  <SolidColorBrush x:Key="Accent" Color="#5DDEB5"/>
+  <LinearGradientBrush x:Key="Glass" StartPoint="0,0" EndPoint="0,1">
+   <GradientStop Color="{DynamicResource ColorFFFFFF}" Offset="0"/><GradientStop Color="{DynamicResource ColorEDF7FC}" Offset=".46"/>
+   <GradientStop Color="{DynamicResource ColorD5EAF5}" Offset=".47"/><GradientStop Color="{DynamicResource ColorF2FAFF}" Offset="1"/>
+  </LinearGradientBrush>
+  <LinearGradientBrush x:Key="PanelSurface" StartPoint="0,0" EndPoint="0,1">
+   <GradientStop Color="{DynamicResource ColorFFFFFF}" Offset="0"/><GradientStop Color="{DynamicResource ColorF1F7FB}" Offset="1"/>
+  </LinearGradientBrush>
+  <LinearGradientBrush x:Key="GreenButton" StartPoint="0,0" EndPoint="0,1">
+   <GradientStop Color="{DynamicResource ColorF5FFE8}" Offset="0"/><GradientStop Color="{DynamicResource ColorD6EDAC}" Offset=".48"/>
+   <GradientStop Color="{DynamicResource ColorB9DA83}" Offset=".49"/><GradientStop Color="{DynamicResource ColorE1F4BB}" Offset="1"/>
+  </LinearGradientBrush>
   <Style TargetType="TextBlock"><Setter Property="TextWrapping" Value="Wrap"/><Setter Property="VerticalAlignment" Value="Center"/></Style>
-  <Style x:Key="Muted" TargetType="TextBlock"><Setter Property="Foreground" Value="#A4B6CA"/><Setter Property="TextWrapping" Value="Wrap"/><Setter Property="VerticalAlignment" Value="Center"/></Style>
+  <Style x:Key="Muted" TargetType="TextBlock">
+   <Setter Property="Foreground" Value="{DynamicResource Brush526F83}"/><Setter Property="TextWrapping" Value="Wrap"/><Setter Property="VerticalAlignment" Value="Center"/>
+  </Style>
   <Style TargetType="Button">
-   <Setter Property="Foreground" Value="#E9F1FA"/><Setter Property="Background" Value="#2B3D53"/>
-   <Setter Property="Padding" Value="12,9"/><Setter Property="Margin" Value="0,3"/>
-   <Setter Property="FontWeight" Value="SemiBold"/><Setter Property="Cursor" Value="Hand"/>
+   <Setter Property="Foreground" Value="{DynamicResource Brush234B67}"/><Setter Property="Background" Value="{DynamicResource Glass}"/>
+   <Setter Property="BorderBrush" Value="{DynamicResource Brush94B3C7}"/><Setter Property="BorderThickness" Value="1"/>
+   <Setter Property="Padding" Value="12,7"/><Setter Property="MinHeight" Value="32"/>
+   <Setter Property="Margin" Value="0,3"/><Setter Property="Cursor" Value="Hand"/>
    <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="Button">
-    <Border x:Name="Body" CornerRadius="6" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
-     <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <Border x:Name="Body" CornerRadius="4" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1">
+     <Border CornerRadius="3" BorderBrush="{DynamicResource BrushCCFFFFFF}" BorderThickness="1" Padding="{TemplateBinding Padding}">
+      <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" RecognizesAccessKey="True"/>
+     </Border>
     </Border>
     <ControlTemplate.Triggers>
-     <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="Body" Property="Opacity" Value="0.84"/></Trigger>
-     <Trigger Property="IsEnabled" Value="False"><Setter TargetName="Body" Property="Opacity" Value="0.45"/></Trigger>
+     <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="Body" Property="BorderBrush" Value="{DynamicResource Brush3297D2}"/><Setter TargetName="Body" Property="Background" Value="{DynamicResource BrushE6F6FF}"/></Trigger>
+     <Trigger Property="IsPressed" Value="True"><Setter TargetName="Body" Property="Background" Value="{DynamicResource BrushC2DFEE}"/><Setter TargetName="Body" Property="BorderBrush" Value="{DynamicResource Brush427F9F}"/></Trigger>
+     <Trigger Property="IsKeyboardFocused" Value="True"><Setter TargetName="Body" Property="BorderBrush" Value="{DynamicResource Brush0879BD}"/></Trigger>
+     <Trigger Property="IsEnabled" Value="False"><Setter TargetName="Body" Property="Opacity" Value=".5"/><Setter Property="Foreground" Value="{DynamicResource Brush647681}"/></Trigger>
     </ControlTemplate.Triggers>
    </ControlTemplate></Setter.Value></Setter>
   </Style>
-  <Style TargetType="TextBox"><Setter Property="Background" Value="#101927"/><Setter Property="Foreground" Value="#E9F1FA"/><Setter Property="BorderBrush" Value="#3A5069"/><Setter Property="Padding" Value="8,6"/><Setter Property="VerticalContentAlignment" Value="Center"/><Setter Property="MinHeight" Value="32"/></Style>
-  <Style TargetType="ComboBox"><Setter Property="Foreground" Value="#142236"/><Setter Property="Background" Value="#DCE6EF"/><Setter Property="Padding" Value="8,5"/><Setter Property="MinHeight" Value="32"/><Setter Property="VerticalContentAlignment" Value="Center"/></Style>
-  <Style TargetType="CheckBox"><Setter Property="Foreground" Value="#D7E5F2"/><Setter Property="Margin" Value="0,10"/><Setter Property="VerticalContentAlignment" Value="Center"/></Style>
-  <Style TargetType="TabItem"><Setter Property="Foreground" Value="#142236"/><Setter Property="Padding" Value="16,8"/><Setter Property="FontWeight" Value="SemiBold"/></Style>
-  <Style TargetType="DataGridColumnHeader"><Setter Property="Background" Value="#24364C"/><Setter Property="Foreground" Value="#BDCEE0"/><Setter Property="Padding" Value="9,10"/><Setter Property="BorderThickness" Value="0"/><Setter Property="FontWeight" Value="Normal"/></Style>
-  <Style TargetType="DataGridCell"><Setter Property="BorderThickness" Value="0"/><Setter Property="Padding" Value="8,7"/><Setter Property="Template"><Setter.Value><ControlTemplate TargetType="DataGridCell"><Border Padding="{TemplateBinding Padding}" Background="{TemplateBinding Background}"><ContentPresenter VerticalAlignment="Center"/></Border></ControlTemplate></Setter.Value></Setter></Style>
-  <Style TargetType="DataGridRow"><Setter Property="Foreground" Value="#E9F1FA"/><Setter Property="Background" Value="#172536"/><Setter Property="MinHeight" Value="36"/><Style.Triggers><Trigger Property="IsSelected" Value="True"><Setter Property="Background" Value="#34546D"/></Trigger></Style.Triggers></Style>
+  <Style TargetType="TextBox">
+   <Setter Property="Background" Value="{DynamicResource BrushFFFFFF}"/><Setter Property="Foreground" Value="{DynamicResource Brush253E50}"/>
+   <Setter Property="BorderBrush" Value="{DynamicResource BrushA0B9CA}"/><Setter Property="Padding" Value="7,5"/>
+   <Setter Property="VerticalContentAlignment" Value="Center"/><Setter Property="MinHeight" Value="30"/>
+   <Style.Triggers><Trigger Property="IsKeyboardFocused" Value="True"><Setter Property="BorderBrush" Value="{DynamicResource Brush2489C0}"/></Trigger></Style.Triggers>
+  </Style>
+  <Style TargetType="ComboBox">
+   <Setter Property="Foreground" Value="{DynamicResource Brush253E50}"/><Setter Property="Background" Value="{DynamicResource BrushF1F7FB}"/><Setter Property="Padding" Value="7,5"/><Setter Property="MinHeight" Value="30"/>
+   <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="ComboBox">
+    <Grid>
+     <ToggleButton x:Name="DropButton" IsChecked="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" Focusable="False">
+      <ToggleButton.Template><ControlTemplate TargetType="ToggleButton"><Border x:Name="DropBorder" Background="{DynamicResource Glass}" BorderBrush="{DynamicResource BrushA0B9CA}" BorderThickness="1" CornerRadius="3"><Path Data="M 0,0 L 8,0 L 4,4 Z" Fill="{DynamicResource Brush526F83}" Width="8" Height="4" Stretch="Fill" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,9,0"/></Border><ControlTemplate.Triggers><Trigger Property="IsMouseOver" Value="True"><Setter TargetName="DropBorder" Property="BorderBrush" Value="{DynamicResource Brush2489C0}"/></Trigger></ControlTemplate.Triggers></ControlTemplate></ToggleButton.Template>
+     </ToggleButton>
+     <ContentPresenter Margin="8,4,27,4" Content="{TemplateBinding SelectionBoxItem}" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" VerticalAlignment="Center" IsHitTestVisible="False"/>
+     <Popup x:Name="PART_Popup" IsOpen="{TemplateBinding IsDropDownOpen}" Placement="Bottom" AllowsTransparency="True" Focusable="False">
+      <Border Background="{DynamicResource BrushFFFFFF}" BorderBrush="{DynamicResource BrushA0B9CA}" BorderThickness="1" MinWidth="{Binding ActualWidth, RelativeSource={RelativeSource TemplatedParent}}" MaxHeight="240">
+       <ScrollViewer VerticalScrollBarVisibility="Auto"><ItemsPresenter KeyboardNavigation.DirectionalNavigation="Contained"/></ScrollViewer>
+      </Border>
+     </Popup>
+    </Grid>
+    <ControlTemplate.Triggers><Trigger Property="IsEnabled" Value="False"><Setter Property="Opacity" Value=".5"/></Trigger><Trigger Property="IsKeyboardFocusWithin" Value="True"><Setter TargetName="DropButton" Property="Opacity" Value=".85"/></Trigger></ControlTemplate.Triggers>
+   </ControlTemplate></Setter.Value></Setter>
+  </Style>
+  <Style TargetType="CheckBox">
+   <Setter Property="Foreground" Value="{DynamicResource Brush3D5B70}"/><Setter Property="Margin" Value="0,8"/><Setter Property="VerticalContentAlignment" Value="Center"/>
+   <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="CheckBox">
+    <StackPanel Orientation="Horizontal" Background="Transparent">
+     <Border x:Name="Box" Width="16" Height="16" CornerRadius="2" BorderThickness="1" BorderBrush="{DynamicResource BrushA0B9CA}" Background="{DynamicResource BrushFFFFFF}" VerticalAlignment="Center">
+      <TextBlock x:Name="Tick" Visibility="Collapsed" Text="&#xE73E;" FontFamily="Segoe MDL2 Assets" FontSize="11" Foreground="{DynamicResource Brush32842C}" HorizontalAlignment="Center"/>
+     </Border><ContentPresenter Margin="7,0,0,0" VerticalAlignment="Center" RecognizesAccessKey="True"/>
+    </StackPanel>
+    <ControlTemplate.Triggers>
+     <Trigger Property="IsChecked" Value="True"><Setter TargetName="Tick" Property="Visibility" Value="Visible"/></Trigger>
+     <Trigger Property="IsKeyboardFocused" Value="True"><Setter TargetName="Box" Property="BorderBrush" Value="{DynamicResource Brush2489C0}"/></Trigger>
+     <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="Box" Property="BorderBrush" Value="{DynamicResource Brush2489C0}"/></Trigger>
+     <Trigger Property="IsEnabled" Value="False"><Setter Property="Opacity" Value=".5"/></Trigger>
+    </ControlTemplate.Triggers>
+   </ControlTemplate></Setter.Value></Setter>
+  </Style>
+  <Style TargetType="TabItem">
+   <Setter Property="Foreground" Value="{DynamicResource Brush496C85}"/><Setter Property="Padding" Value="15,8"/>
+   <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="TabItem">
+    <Border x:Name="Tab" Background="{DynamicResource Glass}" BorderBrush="{DynamicResource BrushA6C1D2}" BorderThickness="1" CornerRadius="4,4,0,0" Margin="0,0,3,0" Padding="{TemplateBinding Padding}">
+     <ContentPresenter ContentSource="Header" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    </Border>
+    <ControlTemplate.Triggers>
+     <Trigger Property="IsSelected" Value="True"><Setter TargetName="Tab" Property="Background" Value="{DynamicResource BrushFFFFFF}"/><Setter TargetName="Tab" Property="BorderThickness" Value="1,1,1,0"/><Setter Property="Foreground" Value="{DynamicResource Brush17689A}"/></Trigger>
+     <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="Tab" Property="BorderBrush" Value="{DynamicResource Brush4098C6}"/></Trigger>
+     <Trigger Property="IsKeyboardFocused" Value="True"><Setter TargetName="Tab" Property="BorderBrush" Value="{DynamicResource Brush0879BD}"/></Trigger>
+    </ControlTemplate.Triggers>
+   </ControlTemplate></Setter.Value></Setter>
+  </Style>
+  <Style TargetType="DataGridColumnHeader">
+   <Setter Property="Background" Value="{DynamicResource Glass}"/><Setter Property="Foreground" Value="{DynamicResource Brush45677E}"/>
+   <Setter Property="Padding" Value="9,8"/><Setter Property="BorderBrush" Value="{DynamicResource BrushCDDEE9}"/><Setter Property="BorderThickness" Value="0,0,1,1"/><Setter Property="FontWeight" Value="Normal"/>
+  </Style>
+  <Style TargetType="DataGridCell"><Setter Property="BorderThickness" Value="0"/><Setter Property="Padding" Value="8,6"/>
+   <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="DataGridCell"><Border Padding="{TemplateBinding Padding}" Background="{TemplateBinding Background}"><ContentPresenter VerticalAlignment="Center"/></Border></ControlTemplate></Setter.Value></Setter>
+   <Style.Triggers><Trigger Property="IsSelected" Value="True"><Setter Property="Foreground" Value="{DynamicResource Brush143F5C}"/><Setter Property="Background" Value="{DynamicResource BrushD5EBFA}"/></Trigger></Style.Triggers>
+  </Style>
+  <Style TargetType="DataGridRow"><Setter Property="Foreground" Value="{DynamicResource Brush294A60}"/><Setter Property="MinHeight" Value="34"/>
+   <Style.Triggers><Trigger Property="IsSelected" Value="True"><Setter Property="Background" Value="{DynamicResource BrushD5EBFA}"/></Trigger></Style.Triggers>
+  </Style>
+  <Style TargetType="ProgressBar">
+   <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="ProgressBar">
+    <Border BorderBrush="{DynamicResource Brush7C9B91}" BorderThickness="1" CornerRadius="3" Background="{DynamicResource BrushE3EDE7}" Padding="2">
+     <Grid x:Name="PART_Track" ClipToBounds="True">
+      <Border x:Name="PART_Indicator" HorizontalAlignment="Left" CornerRadius="1">
+       <Border.Background><LinearGradientBrush StartPoint="0,0" EndPoint="0,1"><GradientStop Color="{DynamicResource ColorC7F69B}" Offset="0"/><GradientStop Color="{DynamicResource Color8ECE55}" Offset=".46"/><GradientStop Color="{DynamicResource Color57AA29}" Offset=".5"/><GradientStop Color="{DynamicResource Color91D158}" Offset="1"/></LinearGradientBrush></Border.Background>
+      </Border>
+      <Rectangle IsHitTestVisible="False"><Rectangle.Fill>
+       <DrawingBrush TileMode="Tile" Viewport="0,0,9,20" ViewportUnits="Absolute" Viewbox="0,0,9,20" ViewboxUnits="Absolute">
+        <DrawingBrush.Drawing><GeometryDrawing Brush="{DynamicResource BrushCFFFFFFF}" Geometry="M 8,0 L 9,0 9,20 8,20 Z"/></DrawingBrush.Drawing>
+       </DrawingBrush>
+      </Rectangle.Fill></Rectangle>
+     </Grid>
+    </Border>
+   </ControlTemplate></Setter.Value></Setter>
+  </Style>
+
+  <Style TargetType="ToolTip">
+   <Setter Property="Background" Value="{DynamicResource BrushF1F7FB}"/><Setter Property="Foreground" Value="{DynamicResource Brush253E50}"/>
+   <Setter Property="BorderBrush" Value="{DynamicResource BrushA0B9CA}"/><Setter Property="Padding" Value="12"/><Setter Property="MaxWidth" Value="330"/>
+   <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="ToolTip"><Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="5" Padding="{TemplateBinding Padding}"><ContentPresenter/></Border></ControlTemplate></Setter.Value></Setter>
+  </Style>
+  <Style x:Key="ScrollThumb" TargetType="Thumb">
+   <Setter Property="MinHeight" Value="18"/><Setter Property="MinWidth" Value="18"/>
+   <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="Thumb">
+    <Border x:Name="Grip" Background="{DynamicResource BrushA0B9CA}" CornerRadius="4" Margin="2"/>
+    <ControlTemplate.Triggers><Trigger Property="IsMouseOver" Value="True"><Setter TargetName="Grip" Property="Background" Value="{DynamicResource Brush4098C6}"/></Trigger><Trigger Property="IsDragging" Value="True"><Setter TargetName="Grip" Property="Background" Value="{DynamicResource Brush2489C0}"/></Trigger></ControlTemplate.Triggers>
+   </ControlTemplate></Setter.Value></Setter>
+  </Style>
+  <Style x:Key="ScrollPage" TargetType="RepeatButton"><Setter Property="Focusable" Value="False"/><Setter Property="Template"><Setter.Value><ControlTemplate TargetType="RepeatButton"><Border Background="Transparent"/></ControlTemplate></Setter.Value></Setter></Style>
+  <Style TargetType="ScrollBar">
+   <Setter Property="Width" Value="12"/><Setter Property="Background" Value="{DynamicResource BrushEDF7FC}"/>
+   <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="ScrollBar">
+    <Border Background="{TemplateBinding Background}" CornerRadius="5">
+     <Track x:Name="PART_Track" IsDirectionReversed="True" Orientation="{TemplateBinding Orientation}" Minimum="{TemplateBinding Minimum}" Maximum="{TemplateBinding Maximum}" Value="{TemplateBinding Value}" ViewportSize="{TemplateBinding ViewportSize}">
+      <Track.DecreaseRepeatButton><RepeatButton x:Name="Decrease" Command="ScrollBar.PageUpCommand" Style="{StaticResource ScrollPage}"/></Track.DecreaseRepeatButton>
+      <Track.Thumb><Thumb x:Name="ScrollGrip" Style="{StaticResource ScrollThumb}"/></Track.Thumb>
+      <Track.IncreaseRepeatButton><RepeatButton x:Name="Increase" Command="ScrollBar.PageDownCommand" Style="{StaticResource ScrollPage}"/></Track.IncreaseRepeatButton>
+     </Track>
+    </Border>
+    <ControlTemplate.Triggers><Trigger Property="Orientation" Value="Horizontal">
+     <Setter TargetName="PART_Track" Property="IsDirectionReversed" Value="False"/><Setter TargetName="ScrollGrip" Property="MinHeight" Value="0"/>
+     <Setter TargetName="Decrease" Property="Command" Value="ScrollBar.PageLeftCommand"/>
+     <Setter TargetName="Increase" Property="Command" Value="ScrollBar.PageRightCommand"/>
+    </Trigger></ControlTemplate.Triggers>
+   </ControlTemplate></Setter.Value></Setter>
+   <Style.Triggers><Trigger Property="Orientation" Value="Horizontal"><Setter Property="Height" Value="12"/><Setter Property="Width" Value="Auto"/></Trigger></Style.Triggers>
+  </Style>
+  <Style TargetType="ComboBoxItem">
+   <Setter Property="Foreground" Value="{DynamicResource Brush253E50}"/><Setter Property="Padding" Value="7,6"/>
+   <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="ComboBoxItem">
+    <Border x:Name="Item" Background="Transparent" Padding="{TemplateBinding Padding}"><ContentPresenter/></Border>
+    <ControlTemplate.Triggers><Trigger Property="IsHighlighted" Value="True"><Setter TargetName="Item" Property="Background" Value="{DynamicResource BrushD5EBFA}"/></Trigger></ControlTemplate.Triggers>
+   </ControlTemplate></Setter.Value></Setter>
+  </Style>
+  <Style TargetType="Expander">
+   <Setter Property="Foreground" Value="{DynamicResource Brush284A62}"/><Setter Property="Margin" Value="0,5"/>
+   <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="Expander">
+    <StackPanel>
+     <ToggleButton IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" Foreground="{TemplateBinding Foreground}" HorizontalContentAlignment="Left">
+      <ToggleButton.Template><ControlTemplate TargetType="ToggleButton">
+       <Border x:Name="Head" Padding="3,7" Background="Transparent" BorderThickness="1" BorderBrush="Transparent" CornerRadius="3">
+        <DockPanel><TextBlock x:Name="Chevron" Text="&#xE76C;" FontFamily="Segoe MDL2 Assets" FontSize="10" Margin="0,0,8,0" RenderTransformOrigin=".5,.5"/><ContentPresenter/></DockPanel>
+       </Border>
+       <ControlTemplate.Triggers>
+        <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="Head" Property="Background" Value="{DynamicResource BrushEDF7FC}"/></Trigger>
+        <Trigger Property="IsKeyboardFocused" Value="True"><Setter TargetName="Head" Property="BorderBrush" Value="{DynamicResource Brush2489C0}"/></Trigger>
+        <Trigger Property="IsChecked" Value="True"><Setter TargetName="Chevron" Property="RenderTransform"><Setter.Value><RotateTransform Angle="90"/></Setter.Value></Setter></Trigger>
+       </ControlTemplate.Triggers>
+      </ControlTemplate></ToggleButton.Template>
+      <ContentPresenter ContentSource="Header"/>
+     </ToggleButton>
+     <ContentPresenter x:Name="Expanded" Visibility="Collapsed"/>
+    </StackPanel>
+    <ControlTemplate.Triggers><Trigger Property="IsExpanded" Value="True"><Setter TargetName="Expanded" Property="Visibility" Value="Visible"/></Trigger></ControlTemplate.Triggers>
+   </ControlTemplate></Setter.Value></Setter>
+  </Style>
  </Window.Resources>
- <Grid Margin="20,12,20,12" Background="#101927">
-  <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
-  <Grid Margin="0,0,0,14">
-   <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
-   <StackPanel>
-    <TextBlock Text="AIRSPY / ADS-B" FontSize="23" FontWeight="Bold"/>
-    <TextBlock Text="1090 MHz 接收工作台 · 实时遥测与 VRS 联动" Style="{StaticResource Muted}" Margin="0,4,0,0"/>
-   </StackPanel>
-   <Border Grid.Column="1" Background="#20384A" CornerRadius="6" Padding="16,9" VerticalAlignment="Center" Margin="12,0,0,0">
-    <TextBlock x:Name="RunState" Text="待启动" Foreground="#5DDEB5" FontWeight="Bold"/>
-   </Border>
-  </Grid>
-  <Grid Grid.Row="1">
-   <Grid.ColumnDefinitions><ColumnDefinition x:Name="SidebarColumn" Width="270"/><ColumnDefinition Width="16"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
-   <Border Background="#1A293B" CornerRadius="10">
-    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Padding="16">
-     <StackPanel>
-      <TextBlock Text="接收设置" FontSize="16" FontWeight="SemiBold" Margin="0,0,0,12"/>
-      <Grid x:Name="InputGrid">
-       <Grid.ColumnDefinitions><ColumnDefinition Width="82"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
-       <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
-       <TextBlock Text="数据端口" Style="{StaticResource Muted}"/><TextBox x:Name="Port" Grid.Column="1" Margin="0,0,0,8"/>
-       <TextBlock Grid.Row="1" Text="输出格式" Style="{StaticResource Muted}"/><TextBlock Grid.Row="1" Grid.Column="1" Text="Beast · 含信号电平" Margin="0,5,0,12"/>
-       <TextBlock Grid.Row="2" Text="射频增益" Style="{StaticResource Muted}"/><ComboBox x:Name="Gain" Grid.Row="2" Grid.Column="1" Margin="0,0,0,8"/>
-       <TextBlock Grid.Row="3" Text="MLAT / MHz" Style="{StaticResource Muted}"/><ComboBox x:Name="Sample" Grid.Row="3" Grid.Column="1" Margin="0,0,0,8" ToolTip="自动：不传 -m 参数。24 MHz 仅适用于支持该模式的 R2。此项不是接收频率。"/>
-       <TextBlock Grid.Row="4" Text="过滤强度" Style="{StaticResource Muted}"/><TextBox x:Name="Filter" Grid.Row="4" Grid.Column="1" Margin="0,0,0,4" ToolTip="1–60，默认 4；越高通常需要更多 CPU。"/>
-       <CheckBox x:Name="Packing" Grid.Row="5" Grid.ColumnSpan="2" Content="启用位打包 (-p)"/>
-      </Grid>
-      <Grid Margin="0,2,0,0">
-       <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="8"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
-       <Button x:Name="Start" Content="开始接收" Background="#5DDEB5" Foreground="#102B2D"/>
-       <Button x:Name="Stop" Grid.Column="2" Content="停止" IsEnabled="False"/>
-      </Grid>
-      <Button x:Name="Save" Content="保存配置"/>
-      <TextBlock Text="默认参数适合先连通设备。修改参数前请先停止接收。" Style="{StaticResource Muted}" FontSize="11" Margin="0,8,0,14"/>
-      <Border Height="1" Background="#34465A" Margin="0,0,0,14"/>
-      <TextBlock Text="VRS 飞机地图" FontSize="16" FontWeight="SemiBold" Margin="0,0,0,8"/>
-      <Button x:Name="LinkVrs" Content="一键联动 VRS" ToolTip="备份配置，设置本机 Beast 接收机并启动 VRS；若已运行，会先正常关闭再启动。"/>
-      <Button x:Name="Map" Content="打开飞机地图 ↗"/>
-      <Button x:Name="Diagnose" Content="检查连接"/>
-      <TextBlock x:Name="VrsHint" Text="等待检查 VRS。" Style="{StaticResource Muted}" FontSize="11" Margin="0,8,0,12"/>
-      <Expander Header="程序路径与地图地址" Foreground="#E9F1FA" Padding="0,4">
-       <StackPanel Margin="0,9,0,0">
-        <TextBlock Text="解码器 exe" Style="{StaticResource Muted}"/>
-        <TextBox x:Name="DecoderPath" Margin="0,5,0,4"/><Button x:Name="BrowseDecoder" Content="选择解码器"/>
-        <TextBlock Text="VRS exe" Style="{StaticResource Muted}" Margin="0,8,0,0"/>
-        <TextBox x:Name="VrsPath" Margin="0,5,0,4"/><Button x:Name="BrowseVrs" Content="选择 VRS"/>
-        <TextBlock Text="地图地址" Style="{StaticResource Muted}" Margin="0,8,0,0"/><TextBox x:Name="MapUrl" Margin="0,5,0,4"/>
-        <Button x:Name="SavePaths" Content="保存路径与地址"/>
-       </StackPanel>
-      </Expander>
-     </StackPanel>
-    </ScrollViewer>
-   </Border>
-   <Grid Grid.Column="2">
-    <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="*"/></Grid.RowDefinitions>
-    <UniformGrid Columns="4" Margin="0,0,0,12">
-     <Border Background="#1A293B" CornerRadius="8" Margin="0,0,8,0" Padding="12">
-      <StackPanel ToolTip="最近 60 秒有 DF11 或 DF17 显式 ICAO 报文的去重飞机数。与 VRS 的超时和统计范围可能不同。">
-       <TextBlock Text="飞机 · 60 秒内" Style="{StaticResource Muted}" FontSize="11"/>
-       <TextBlock x:Name="Aircraft" Text="—" FontSize="27" FontWeight="SemiBold" Foreground="#5DDEB5" Margin="0,5,0,0"/>
-      </StackPanel>
-     </Border>
-     <Border Background="#1A293B" CornerRadius="8" Margin="0,0,8,0" Padding="12">
-      <StackPanel><TextBlock Text="报文 / 秒" Style="{StaticResource Muted}" FontSize="11"/><TextBlock x:Name="Rate" Text="—" FontSize="27" FontWeight="SemiBold" Margin="0,5,0,0"/></StackPanel>
-     </Border>
-     <Border Background="#1A293B" CornerRadius="8" Margin="0,0,8,0" Padding="12">
-      <StackPanel><TextBlock Text="本次报文总数" Style="{StaticResource Muted}" FontSize="11"/><TextBlock x:Name="Total" Text="0" FontSize="27" FontWeight="SemiBold" Margin="0,5,0,0"/></StackPanel>
-     </Border>
-     <Border Background="#1A293B" CornerRadius="8" Padding="12">
-      <StackPanel><TextBlock Text="VRS 飞机" Style="{StaticResource Muted}" FontSize="11"/><TextBlock x:Name="VrsCount" Text="未连接" FontSize="22" FontWeight="SemiBold" Margin="0,8,0,0"/></StackPanel>
-     </Border>
-    </UniformGrid>
-    <Grid Grid.Row="1" Margin="0,0,0,12">
-     <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="12"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
-     <Border Background="#1A293B" CornerRadius="8" Padding="14">
-      <StackPanel ToolTip="最近 3 秒收到的 Beast 报文电平算术平均，0–255 映射到 0–100%；不是校准的 dBm，也不是噪声底。">
-       <DockPanel><TextBlock Text="平均信号强度" Foreground="#BDCEE0"/><TextBlock x:Name="Mean" Text="暂无数据" HorizontalAlignment="Right" Foreground="#5DDEB5" FontSize="19" FontWeight="SemiBold"/></DockPanel>
-       <ProgressBar x:Name="MeanBar" Minimum="0" Maximum="100" Height="10" BorderThickness="0" Background="#30445A" Foreground="#5DDEB5" Margin="0,12,0,8"/>
-       <TextBlock Text="近 3 秒 · Beast 相对电平 %" Style="{StaticResource Muted}" FontSize="10"/>
-      </StackPanel>
-     </Border>
-     <Border Grid.Column="2" Background="#1A293B" CornerRadius="8" Padding="14">
-      <StackPanel ToolTip="最近 3 秒收到的 Beast 报文中最高相对电平；无报文时清空。">
-       <DockPanel><TextBlock Text="峰值信号强度" Foreground="#BDCEE0"/><TextBlock x:Name="Peak" Text="暂无数据" HorizontalAlignment="Right" Foreground="#F6C474" FontSize="19" FontWeight="SemiBold"/></DockPanel>
-       <ProgressBar x:Name="PeakBar" Minimum="0" Maximum="100" Height="10" BorderThickness="0" Background="#30445A" Foreground="#F6C474" Margin="0,12,0,8"/>
-       <TextBlock Text="近 3 秒 · Beast 相对电平 %" Style="{StaticResource Muted}" FontSize="10"/>
+ <Grid x:Name="RootLayout" Margin="14,10,14,10" Background="{DynamicResource BrushEAF4FA}">
+  <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+  <Border x:Name="FullHeader" Grid.Row="0" CornerRadius="7" BorderBrush="{DynamicResource Brush9BBED3}" BorderThickness="1" Margin="0,0,0,10">
+   <Border.Background><LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+    <GradientStop Color="{DynamicResource ColorF9FDFF}" Offset="0"/><GradientStop Color="{DynamicResource ColorD5ECFA}" Offset=".5"/>
+    <GradientStop Color="{DynamicResource ColorBDDDF1}" Offset=".51"/><GradientStop Color="{DynamicResource ColorE6F5FD}" Offset="1"/>
+   </LinearGradientBrush></Border.Background>
+   <Grid x:Name="HeaderGrid" Margin="12,8">
+    <Grid.ColumnDefinitions><ColumnDefinition Width="Auto"/><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+    <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+    <Image x:Name="BrandIcon" Source="{DynamicResource AirplaneIcon}" Width="44" Height="44" Margin="0,0,12,0"/>
+    <StackPanel x:Name="BrandText" Grid.Column="1" VerticalAlignment="Center"><TextBlock x:Name="BrandTitle" Text="AirspyPanel" FontFamily="Segoe UI" FontSize="28" FontWeight="Light" Foreground="{DynamicResource Brush215A80}"/><TextBlock x:Name="Tagline" Text="{DynamicResource Loc_s209}" FontSize="11" Foreground="{DynamicResource Brush527E99}"/></StackPanel>
+    <Grid x:Name="HeaderTools" Grid.Column="2" VerticalAlignment="Center" Height="32">
+     <Grid.ColumnDefinitions><ColumnDefinition Width="Auto"/><ColumnDefinition Width="6"/><ColumnDefinition x:Name="ThemeColumn" Width="104"/><ColumnDefinition Width="6"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+     <Button x:Name="ToggleMode" Content="{DynamicResource Loc_s191}" Padding="8,3" Height="32" Margin="0"/>
+     <ComboBox x:Name="ThemeChoice" Grid.Column="2" Height="32" VerticalAlignment="Center" ToolTip="{DynamicResource Loc_s096}" AutomationProperties.Name="{DynamicResource Loc_s096}"/>
+     <Border x:Name="HeaderStatus" Grid.Column="4" Height="32" CornerRadius="15" BorderBrush="{DynamicResource BrushA7C4D5}" BorderThickness="1" Background="{DynamicResource Glass}" Padding="7,0">
+      <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+       <Ellipse x:Name="ReceptionLamp" Width="8" Height="8" Margin="0,0,5,0" Fill="{DynamicResource Brush8598A4}"/>
+       <TextBlock x:Name="RunState" Text="{DynamicResource Loc_s115}" FontSize="11" TextWrapping="NoWrap"/>
       </StackPanel>
      </Border>
     </Grid>
-    <Border Grid.Row="2" Background="#1A293B" CornerRadius="8" Padding="12">
+    <TextBlock x:Name="FrequencyCaption" Grid.Row="1" Grid.Column="2" Text="1090 MHz · Airspy / VRS" HorizontalAlignment="Right" FontSize="10" Foreground="{DynamicResource Brush537F98}"/>
+   </Grid>
+  </Border>
+  <Grid x:Name="FullView" Grid.Row="2">
+   <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/></Grid.RowDefinitions>
+   <DockPanel Margin="0,0,0,8">
+    <StackPanel Orientation="Horizontal" DockPanel.Dock="Left"><Button x:Name="TopSettings" Content="{DynamicResource Loc_s212}" Padding="10,4" Margin="0,0,6,0"/></StackPanel>
+    <Button x:Name="TopVrsDetails" HorizontalAlignment="Right" Padding="9,4" Margin="0" ToolTip="{DynamicResource Loc_s041}"><StackPanel Orientation="Horizontal"><Ellipse Fill="{Binding Fill, ElementName=VrsLamp}" Width="8" Height="8" Margin="0,0,6,0"/><TextBlock Text="{Binding Text, ElementName=VrsState}"/></StackPanel></Button>
+   </DockPanel>
+   <Grid x:Name="DashboardGrid" Grid.Row="1">
+   <Grid.ColumnDefinitions><ColumnDefinition x:Name="SidebarColumn" Width="270"/><ColumnDefinition x:Name="SidebarGap" Width="12"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+   <Border x:Name="MapSidebar" Background="{DynamicResource PanelSurface}" BorderBrush="{DynamicResource BrushACC6D7}" BorderThickness="1" CornerRadius="5">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Padding="12">
+     <StackPanel>
+      <TextBlock Text="{DynamicResource Loc_s134}" FontSize="14" Foreground="{DynamicResource Brush286B95}" FontWeight="SemiBold" Margin="0,0,0,12"/>
+      <Button x:Name="OpenSettings" Content="{DynamicResource Loc_s130}"/>
+      <TextBlock x:Name="SettingsHint" Text="{DynamicResource Loc_s128}" Style="{StaticResource Muted}" Margin="0,0,0,8"/>
+      <TextBlock Text="{DynamicResource Loc_s021}" Style="{StaticResource Muted}" FontSize="11" Margin="0,8,0,14"/>
+      <Border Height="1" Background="{DynamicResource BrushD1E2EC}" Margin="0,0,0,14"/>
+      <TextBlock Text="{DynamicResource Loc_s086}" FontSize="14" Foreground="{DynamicResource Brush286B95}" FontWeight="SemiBold" Margin="0,0,0,8"/>
+      <Button x:Name="VrsDetails" Padding="9,5" Margin="0,0,0,8" ToolTip="{DynamicResource Loc_s170}">
+       <StackPanel Orientation="Horizontal"><Ellipse x:Name="VrsLamp" Width="9" Height="9" Fill="{DynamicResource Brush8598A4}" Margin="0,0,7,0"/><TextBlock x:Name="VrsState" Text="{DynamicResource Loc_s040}"/></StackPanel>
+      </Button>
+      <TextBlock x:Name="VrsHint" Text="{DynamicResource Loc_s189}" Style="{StaticResource Muted}" FontSize="11" Margin="0,8,0,12"/>
+
+     </StackPanel>
+    </ScrollViewer>
+   </Border>
+   <Grid x:Name="ReceiverDashboard" Grid.Column="2">
+    <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="*"/></Grid.RowDefinitions>
+    <Border Background="{DynamicResource Glass}" BorderBrush="{DynamicResource BrushAEC8D9}" BorderThickness="1" CornerRadius="4" Margin="0,0,0,9" Padding="7,3">
+     <DockPanel>
+      <StackPanel Orientation="Horizontal" DockPanel.Dock="Left">
+       <Button x:Name="Start" Content="{DynamicResource Loc_s114}" Background="{DynamicResource GreenButton}" Foreground="{DynamicResource Brush315925}" BorderBrush="{DynamicResource Brush8AAA69}" MinWidth="100" Margin="0,0,7,0"/>
+       <Button x:Name="LinkVrs" Content="{DynamicResource Loc_s241}" ToolTip="{DynamicResource Loc_s093}" Background="{DynamicResource GreenButton}" Foreground="{DynamicResource Brush315925}" Margin="0,0,7,0"/>
+       <Button x:Name="Stop" Content="{DynamicResource Loc_s062}" ToolTip="{DynamicResource Loc_s061}" MinWidth="84" IsEnabled="False" Margin="0"/>
+      </StackPanel>
+      <StackPanel x:Name="QuickActions" Orientation="Horizontal" HorizontalAlignment="Right">
+       <Button x:Name="QuickMap" Content="{DynamicResource Loc_s118}" Padding="8,5" Margin="6,0,0,0"/>
+       <Ellipse Fill="{Binding Fill, ElementName=VrsLamp}" Width="9" Height="9" Margin="8,0,0,0" ToolTip="{Binding Text, ElementName=VrsState}"/>
+      </StackPanel>
+     </DockPanel>
+    </Border>
+    <UniformGrid Grid.Row="1" Columns="4" Margin="0,0,0,12">
+     <Border Background="{DynamicResource PanelSurface}" BorderBrush="{DynamicResource BrushB4CCDC}" BorderThickness="1" CornerRadius="4" Margin="0,0,8,0" Padding="8">
+      <StackPanel ToolTip="{DynamicResource Loc_s155}">
+       <TextBlock Text="{DynamicResource Loc_s249}" Style="{StaticResource Muted}" FontSize="11"/>
+       <TextBlock x:Name="Aircraft" Text="—" FontSize="23" FontFamily="Segoe UI" FontWeight="Light" Foreground="{DynamicResource Brush32842C}" Margin="0,2,0,0"/>
+      </StackPanel>
+     </Border>
+     <Border Background="{DynamicResource PanelSurface}" BorderBrush="{DynamicResource BrushB4CCDC}" BorderThickness="1" CornerRadius="4" Margin="0,0,8,0" Padding="8">
+      <StackPanel><TextBlock Text="{DynamicResource Loc_s123}" Style="{StaticResource Muted}" FontSize="11"/><TextBlock x:Name="Rate" Text="—" FontSize="23" FontFamily="Segoe UI" FontWeight="Light" Margin="0,2,0,0"/></StackPanel>
+     </Border>
+     <Border Background="{DynamicResource PanelSurface}" BorderBrush="{DynamicResource BrushB4CCDC}" BorderThickness="1" CornerRadius="4" Margin="0,0,8,0" Padding="8">
+      <StackPanel><TextBlock Text="{DynamicResource Loc_s167}" Style="{StaticResource Muted}" FontSize="11"/><TextBlock x:Name="Total" Text="0" FontSize="23" FontFamily="Segoe UI" FontWeight="Light" Margin="0,2,0,0"/></StackPanel>
+     </Border>
+     <Border Background="{DynamicResource PanelSurface}" BorderBrush="{DynamicResource BrushB4CCDC}" BorderThickness="1" CornerRadius="4" Padding="8">
+      <StackPanel><TextBlock Text="{DynamicResource Loc_s045}" Style="{StaticResource Muted}" FontSize="11"/><TextBlock x:Name="VrsCount" Text="{DynamicResource Loc_s164}" FontSize="20" FontWeight="Normal" Margin="0,4,0,0"/></StackPanel>
+     </Border>
+    </UniformGrid>
+    <Grid Grid.Row="2" Margin="0,0,0,10">
+     <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="12"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+     <Border Background="{DynamicResource PanelSurface}" BorderBrush="{DynamicResource BrushB4CCDC}" BorderThickness="1" CornerRadius="4" Padding="10">
+      <StackPanel ToolTip="{DynamicResource Loc_s154}">
+       <DockPanel><TextBlock Text="{DynamicResource Loc_s113}" Foreground="{DynamicResource Brush47677C}"/><TextBlock x:Name="Mean" Text="{DynamicResource Loc_s151}" HorizontalAlignment="Right" Foreground="{DynamicResource Brush32842C}" FontSize="17" FontWeight="Normal" MinWidth="68"/></DockPanel>
+       <ProgressBar x:Name="MeanBar" Minimum="0" Maximum="100" Height="19" Margin="0,10,0,5"/>
+       <Grid TextBlock.Foreground="{DynamicResource Brush526F83}" TextBlock.FontSize="10">
+        <Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition/><ColumnDefinition/><ColumnDefinition/><ColumnDefinition/></Grid.ColumnDefinitions>
+        <TextBlock Text="0"/><TextBlock Grid.Column="1" Text="25" HorizontalAlignment="Center"/><TextBlock Grid.Column="2" Text="50" HorizontalAlignment="Center"/><TextBlock Grid.Column="3" Text="75" HorizontalAlignment="Center"/><TextBlock Grid.Column="4" Text="100 %" HorizontalAlignment="Right"/>
+       </Grid>
+      </StackPanel>
+     </Border>
+     <Border Grid.Column="2" Background="{DynamicResource PanelSurface}" BorderBrush="{DynamicResource BrushB4CCDC}" BorderThickness="1" CornerRadius="4" Padding="10">
+      <StackPanel ToolTip="{DynamicResource Loc_s153}">
+       <DockPanel><TextBlock Text="{DynamicResource Loc_s102}" Foreground="{DynamicResource Brush47677C}"/><TextBlock x:Name="Peak" Text="{DynamicResource Loc_s151}" HorizontalAlignment="Right" Foreground="{DynamicResource Brush387F33}" FontSize="17" FontWeight="Normal" MinWidth="68"/></DockPanel>
+       <ProgressBar x:Name="PeakBar" Minimum="0" Maximum="100" Height="19" Margin="0,10,0,5"/>
+       <Grid TextBlock.Foreground="{DynamicResource Brush526F83}" TextBlock.FontSize="10">
+        <Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition/><ColumnDefinition/><ColumnDefinition/><ColumnDefinition/></Grid.ColumnDefinitions>
+        <TextBlock Text="0"/><TextBlock Grid.Column="1" Text="25" HorizontalAlignment="Center"/><TextBlock Grid.Column="2" Text="50" HorizontalAlignment="Center"/><TextBlock Grid.Column="3" Text="75" HorizontalAlignment="Center"/><TextBlock Grid.Column="4" Text="100 %" HorizontalAlignment="Right"/>
+       </Grid>
+      </StackPanel>
+     </Border>
+    </Grid>
+    <Border Grid.Row="3" Background="{DynamicResource PanelSurface}" BorderBrush="{DynamicResource BrushB4CCDC}" BorderThickness="1" CornerRadius="4" Padding="12">
      <Grid>
       <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
-      <TextBlock x:Name="DataState" Text="等待接收数据" Style="{StaticResource Muted}" Margin="2,0,0,10"/>
-      <TabControl Grid.Row="1" Background="#101927" BorderThickness="0" Foreground="#E9F1FA">
-       <TabItem Header="飞机列表">
+      <TextBlock x:Name="DataState" Text="{DynamicResource Loc_s188}" Style="{StaticResource Muted}" Margin="2,0,0,10"/>
+      <TabControl x:Name="MainTabs" Grid.Row="1" Background="{DynamicResource BrushFFFFFF}" BorderThickness="0" Foreground="{DynamicResource Brush284A62}">
+       <TabItem Header="{DynamicResource Loc_s250}">
         <Grid>
          <DataGrid x:Name="Planes" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False"
-          HeadersVisibility="Column" GridLinesVisibility="None" Background="#101927" BorderThickness="0" RowHeaderWidth="0" SelectionMode="Single"
-          ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+          HeadersVisibility="Column" GridLinesVisibility="None" Background="{DynamicResource BrushFFFFFF}" BorderThickness="0" RowHeaderWidth="0" SelectionMode="Single" RowBackground="{DynamicResource BrushFFFFFF}" AlternatingRowBackground="{DynamicResource BrushF2F8FC}"
+          ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto">
+          <DataGrid.RowStyle><Style TargetType="DataGridRow"><Setter Property="ToolTip"><Setter.Value><TextBlock><Run Text="ICAO: "/><Run Text="{Binding Icao}"/><LineBreak/><Run Text="{DynamicResource Loc_s082}"/><Run Text="{Binding Callsign}"/><LineBreak/><Run Text="{DynamicResource Loc_s124}"/><Run Text="{Binding Messages}"/><LineBreak/><Run Text="{DynamicResource Loc_s222}"/><Run Text="{Binding LastSeen}"/></TextBlock></Setter.Value></Setter></Style></DataGrid.RowStyle>
           <DataGrid.Columns>
            <DataGridTextColumn Header="ICAO" Binding="{Binding Icao}" Width="80"/>
-           <DataGridTextColumn Header="呼号" Binding="{Binding Callsign}" Width="*" MinWidth="96"/>
-           <DataGridTextColumn Header="高度" Binding="{Binding Altitude}" Width="95"/>
-           <DataGridTextColumn Header="电平" Binding="{Binding Signal}" Width="75"/>
-           <DataGridTextColumn Header="报文" Binding="{Binding Messages}" Width="65"/>
-           <DataGridTextColumn Header="距上次" Binding="{Binding LastSeen}" Width="75"/>
+           <DataGridTextColumn Header="{DynamicResource Loc_s081}" Binding="{Binding Callsign}" Width="*" MinWidth="96"/>
+           <DataGridTextColumn Header="{DynamicResource Loc_s251}" Binding="{Binding Altitude}" Width="95"/>
+           <DataGridTextColumn Header="{DynamicResource Loc_s179}" Binding="{Binding Signal}" Width="75"/>
+           <DataGridTextColumn Header="{DynamicResource Loc_s122}" Binding="{Binding Messages}" Width="100"/>
+           <DataGridTextColumn Header="{DynamicResource Loc_s221}" Binding="{Binding LastSeen}" Width="130"/>
           </DataGrid.Columns>
          </DataGrid>
-         <TextBlock x:Name="Empty" Text="暂无飞机&#10;接入接收机并点击“开始接收”" TextAlignment="Center" Foreground="#91A7BD" FontSize="15" VerticalAlignment="Center" IsHitTestVisible="False"/>
+         <TextBlock x:Name="Empty" Text="{DynamicResource Loc_s152}" TextAlignment="Center" Foreground="{DynamicResource Brush66879D}" FontSize="13" VerticalAlignment="Center" IsHitTestVisible="False"/>
         </Grid>
-       </TabItem>
-       <TabItem Header="运行日志">
-        <Grid><Grid.RowDefinitions><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
-         <TextBox x:Name="Log" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" BorderThickness="0" FontFamily="Consolas" FontSize="12"/>
-         <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="4">
-          <Button x:Name="ClearLog" Content="清空显示" Margin="0,0,8,0"/><Button x:Name="ExportLog" Content="导出日志"/>
-         </StackPanel>
-        </Grid>
-       </TabItem>
-       <TabItem Header="联动诊断">
-        <ScrollViewer VerticalScrollBarVisibility="Auto"><StackPanel Margin="14">
-         <TextBlock Text="解码器 → Beast 数据 → VRS → 浏览器地图" FontSize="14" FontWeight="SemiBold"/>
-         <TextBlock x:Name="Diagnostics" Margin="0,14,0,14" Foreground="#BDCEE0"/>
-         <TextBlock Text="启动命令" Style="{StaticResource Muted}" Margin="0,12,0,4"/>
-         <TextBox x:Name="Command" IsReadOnly="True" TextWrapping="Wrap" AcceptsReturn="True"/>
-         <TextBlock Text="信号表来自已解码报文的相对电平，不是频谱仪或噪声底测量。飞机按 DF11/17 的 ICAO 去重，60 秒未收到消息后移出列表。" Style="{StaticResource Muted}" FontSize="11" Margin="0,16,0,0"/>
-        </StackPanel></ScrollViewer>
        </TabItem>
       </TabControl>
-      <TextBlock Text="实时数据来自本机 Beast 数据流；无数据时不显示模拟读数。" Grid.Row="2" Style="{StaticResource Muted}" FontSize="10" Margin="2,8,0,0"/>
+      <TextBlock Text="{DynamicResource Loc_s024}" Grid.Row="2" Style="{StaticResource Muted}" FontSize="10" Margin="2,8,0,0"/>
      </Grid>
     </Border>
    </Grid>
+   </Grid>
   </Grid>
-  <TextBlock x:Name="Footer" Grid.Row="2" Text="就绪 · Airspy R0 / R2 / Mini" Style="{StaticResource Muted}" FontSize="11" Margin="2,12,0,0"/>
+  <ScrollViewer x:Name="CompactView" Grid.Row="2" Visibility="Collapsed" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+   <StackPanel Margin="0,0,3,0">
+
+    <Grid><Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition Width="8"/><ColumnDefinition/></Grid.ColumnDefinitions>
+     <Button x:Name="CompactStart" Content="{DynamicResource Loc_s114}" Background="{DynamicResource GreenButton}" Foreground="{DynamicResource Brush315925}" IsEnabled="{Binding IsEnabled, ElementName=Start}"/>
+     <Button x:Name="CompactStop" Grid.Column="2" Content="{DynamicResource Loc_s062}" ToolTip="{DynamicResource Loc_s061}" IsEnabled="{Binding IsEnabled, ElementName=Stop}"/>
+    </Grid>
+    <Border Background="{DynamicResource PanelSurface}" BorderBrush="{DynamicResource BrushB4CCDC}" BorderThickness="1" CornerRadius="5" Padding="10" Margin="0,7">
+     <StackPanel>
+      <DockPanel><TextBlock Text="{DynamicResource Loc_s245}" Style="{StaticResource Muted}"/><TextBlock Text="{Binding Text, ElementName=Aircraft}" FontSize="30" Foreground="{DynamicResource Brush32842C}" HorizontalAlignment="Right"/></DockPanel>
+      <TextBlock Text="{Binding Text, ElementName=DataState}" Style="{StaticResource Muted}" FontSize="11" Margin="0,2,0,6"/>
+      <DockPanel><TextBlock Text="{DynamicResource Loc_s113}" Style="{StaticResource Muted}"/><TextBlock Text="{Binding Text, ElementName=Mean}" HorizontalAlignment="Right"/></DockPanel>
+      <ProgressBar Value="{Binding Value, ElementName=MeanBar}" Height="16" Margin="0,4,0,7"/>
+      <DockPanel><TextBlock Text="{DynamicResource Loc_s102}" Style="{StaticResource Muted}"/><TextBlock Text="{Binding Text, ElementName=Peak}" HorizontalAlignment="Right"/></DockPanel>
+      <ProgressBar Value="{Binding Value, ElementName=PeakBar}" Height="16" Margin="0,4,0,0"/>
+
+     </StackPanel>
+    </Border>
+    <Border Background="{DynamicResource PanelSurface}" BorderBrush="{DynamicResource BrushB4CCDC}" BorderThickness="1" CornerRadius="5" Padding="10">
+     <StackPanel>
+      <Button x:Name="CompactLink" Content="{DynamicResource Loc_s241}" Height="36" Padding="4,4" Margin="0" Background="{DynamicResource GreenButton}" Foreground="{DynamicResource Brush315925}" IsEnabled="{Binding IsEnabled, ElementName=LinkVrs}"/>
+      <Button x:Name="CompactMap" Content="{DynamicResource Loc_s119}" Height="36" Padding="4,4" Margin="0,6,0,0"/>
+      <Button x:Name="CompactVrsDetails" Height="36" Padding="4,4" Margin="0,6,0,0" ToolTip="{DynamicResource Loc_s170}"><StackPanel Orientation="Horizontal"><Ellipse Fill="{Binding Fill, ElementName=VrsLamp}" Width="9" Height="9" Margin="0,0,7,0"/><TextBlock Text="{Binding Text, ElementName=VrsState}"/></StackPanel></Button>
+     </StackPanel>
+    </Border>
+    <Button x:Name="CompactSettings" Content="{DynamicResource Loc_s212}" Margin="0,7,0,2"/>
+   </StackPanel>
+  </ScrollViewer>
+  <Grid x:Name="SharedPage" Grid.Row="2" Visibility="Collapsed">
+   <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/></Grid.RowDefinitions>
+   <DockPanel Margin="0,0,0,8"><Button x:Name="PageBack" Content="{DynamicResource Loc_s048}" Padding="8,4" DockPanel.Dock="Left"/><TextBlock x:Name="PageTitle" Text="{DynamicResource Loc_s212}" FontSize="15" Margin="12,0"/></DockPanel>
+   <Grid Grid.Row="1" Background="{DynamicResource PanelSurface}">
+<ScrollViewer x:Name="SettingsContent" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+     <StackPanel Margin="10" MaxWidth="700" HorizontalAlignment="Stretch">
+      <StackPanel x:Name="SettingsMenu"><TextBlock Text="{DynamicResource Loc_Language}"/><ComboBox x:Name="LanguageChoice" Margin="0,4,0,12"/><TextBlock Text="{DynamicResource Loc_WelcomeHelp}" TextWrapping="Wrap" Margin="0,4,0,8"/><Button x:Name="GettingStarted" Content="{DynamicResource Loc_s196}"/><Button x:Name="AirspyDownload" Content="{DynamicResource Loc_AirspyDownload}"/><Button x:Name="VrsDownload" Content="{DynamicResource Loc_VrsDownload}"/>
+       <TextBlock Text="{DynamicResource Loc_s248}" FontSize="17" Margin="0,0,0,12"/>
+       <Button x:Name="SettingsReceiver" Content="{DynamicResource Loc_s129}"/><Button x:Name="SettingsPaths" Content="{DynamicResource Loc_s181}"/><Button x:Name="SettingsAppearance" Content="{DynamicResource Loc_s095}"/><Button x:Name="SettingsLog" Content="{DynamicResource Loc_s229}"/>
+      </StackPanel>
+      <Expander x:Name="AdvancedSection" Header="{DynamicResource Loc_s252}">
+       <StackPanel Margin="0,8,0,0">      <Grid x:Name="InputGrid">
+       <Grid.ColumnDefinitions><ColumnDefinition Width="95"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+       <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+       <TextBlock Text="{DynamicResource Loc_s147}" ToolTip="{DynamicResource Loc_s246}" Style="{StaticResource Muted}"/><TextBox x:Name="Port" ToolTip="{DynamicResource Loc_s166}" Grid.Column="1" Margin="0,0,0,8"/>
+       <TextBlock Grid.Row="1" Text="{DynamicResource Loc_s225}" Style="{StaticResource Muted}"/><TextBlock Grid.Row="1" Grid.Column="1" Text="{DynamicResource Loc_s023}" Margin="0,5,0,12"/>
+       <TextBlock Grid.Row="2" Text="{DynamicResource Loc_s132}" ToolTip="{DynamicResource Loc_s046}" Style="{StaticResource Muted}"/><ComboBox x:Name="Gain" ToolTip="{DynamicResource Loc_s047}" Grid.Row="2" Grid.Column="1" Margin="0,0,0,8"/>
+       <TextBlock Grid.Row="3" Text="{DynamicResource Loc_s243}" Style="{StaticResource Muted}"/><ComboBox x:Name="Sample" Grid.Row="3" Grid.Column="1" Margin="0,0,0,8" ToolTip="{DynamicResource Loc_s197}"/>
+       <TextBlock Grid.Row="4" Text="{DynamicResource Loc_s206}" Style="{StaticResource Muted}"/><TextBox x:Name="Filter" Grid.Row="4" Grid.Column="1" Margin="0,0,0,4" ToolTip="{DynamicResource Loc_s019}"/>
+       <CheckBox x:Name="Packing" Grid.Row="5" Grid.ColumnSpan="2" Content="{DynamicResource Loc_s028}" ToolTip="{DynamicResource Loc_s099}"/>
+      </Grid>
+      <Button x:Name="Save" Content="{DynamicResource Loc_s057}"/>
+
+        <Button x:Name="Recommended" Content="{DynamicResource Loc_s116}"/>
+       </StackPanel>
+      </Expander>
+      <Button x:Name="Help" Content="{DynamicResource Loc_s072}" Padding="8,4"/>
+      <Expander x:Name="HelpSection" Header="{DynamicResource Loc_s131}" Visibility="Collapsed">
+       <TextBlock Style="{StaticResource Muted}" FontSize="11" Margin="4,6" Text="{DynamicResource Loc_s148}"/>
+      </Expander>
+      <Expander x:Name="PathsSection" Header="{DynamicResource Loc_s183}" Foreground="{DynamicResource Brush284A62}" Padding="0,4">
+       <StackPanel Margin="0,9,0,0">
+        <Button x:Name="Scan" Content="{DynamicResource Loc_s196}"/>
+        <Grid><Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition Width="8"/><ColumnDefinition/></Grid.ColumnDefinitions>
+         <Button x:Name="ScanFolder" Content="{DynamicResource Loc_s237}" Padding="4,5"/><Button x:Name="CancelScan" Grid.Column="2" Content="{DynamicResource Loc_s076}" Padding="4,5" IsEnabled="False"/>
+        </Grid>
+        <TextBlock x:Name="ScanStatus" Style="{StaticResource Muted}" Text="{DynamicResource Loc_s195}" FontSize="11" Margin="0,6,0,10"/>
+
+        <TextBlock Text="{DynamicResource Loc_s199}" Style="{StaticResource Muted}"/>
+        <TextBox x:Name="DecoderPath" Margin="0,5,0,4"/><Button x:Name="BrowseDecoder" Content="{DynamicResource Loc_s238}"/><ComboBox x:Name="DecoderCandidates" Visibility="Collapsed" ToolTip="{DynamicResource Loc_s074}" AutomationProperties.Name="{DynamicResource Loc_s238}"/>
+        <TextBlock Text="VRS exe" Style="{StaticResource Muted}" Margin="0,8,0,0"/>
+        <TextBox x:Name="VrsPath" Margin="0,5,0,4"/><Button x:Name="BrowseVrs" Content="{DynamicResource Loc_s235}"/><ComboBox x:Name="VrsCandidates" Visibility="Collapsed" ToolTip="{DynamicResource Loc_s073}" AutomationProperties.Name="{DynamicResource Loc_s235}"/>
+        <TextBlock Text="{DynamicResource Loc_s087}" Style="{StaticResource Muted}" Margin="0,8,0,0"/><TextBox x:Name="MapUrl" Margin="0,5,0,4"/>
+        <TextBlock Text="{DynamicResource Loc_s036}" Margin="0,10,0,4"/><ComboBox x:Name="ReceiverChoice" ToolTip="{DynamicResource Loc_s194}"/><Button x:Name="SavePaths" Content="{DynamicResource Loc_s056}"/>
+       </StackPanel>
+      </Expander>
+      <Expander x:Name="AppearanceSection" Header="{DynamicResource Loc_s095}" Margin="0,12,0,0"><StackPanel Margin="0,8,0,0">
+       <TextBlock Text="{DynamicResource Loc_s097}" Margin="0,0,0,12"/>
+       <TextBlock Text="{DynamicResource Loc_s068}"/><ComboBox x:Name="CloseChoice" Margin="0,6,0,8"/>
+       <TextBlock Text="{DynamicResource Loc_s143}" Style="{StaticResource Muted}"/>
+      </StackPanel></Expander>
+     </StackPanel>
+    </ScrollViewer><ScrollViewer x:Name="DetailsContent" VerticalScrollBarVisibility="Auto"><StackPanel Margin="10">
+         <TextBlock Text="{DynamicResource Loc_s041}" FontSize="14" FontWeight="SemiBold"/>
+         <TextBlock x:Name="CheckResult" Text="{DynamicResource Loc_s078}" FontSize="13" Margin="0,12,0,0"/><TextBlock x:Name="Diagnostics" Margin="0,14,0,14" Foreground="{DynamicResource Brush47677C}"/>
+         <Button x:Name="CopyDetails" Content="{DynamicResource Loc_s094}"/><TextBlock Text="{DynamicResource Loc_s079}" Style="{StaticResource Muted}" Margin="0,12,0,4"/>
+         <TextBox x:Name="Command" IsReadOnly="True" TextWrapping="Wrap" AcceptsReturn="True"/>
+         <TextBlock Text="{DynamicResource Loc_s058}" Style="{StaticResource Muted}" FontSize="11" Margin="0,16,0,0"/>
+        </StackPanel></ScrollViewer>
+    <Grid x:Name="LogContent" Visibility="Collapsed" Margin="8">
+     <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+     <ComboBox x:Name="LogView" Margin="0,0,0,6"/>
+     <ComboBox x:Name="LogLevelChoice" Grid.Row="1" Margin="0,0,0,6"/>
+     <RichTextBox x:Name="EventLog" Grid.Row="2" IsReadOnly="True" VerticalScrollBarVisibility="Auto" BorderThickness="0" Background="{DynamicResource BrushFFFFFF}" Foreground="{DynamicResource Brush284A62}"/>
+     <TextBox x:Name="Log" Grid.Row="2" Visibility="Collapsed" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" FontFamily="Consolas" FontSize="11"/>
+     <WrapPanel Grid.Row="3"><Button x:Name="ClearLog" Content="{DynamicResource Loc_s178}" Padding="8,4"/><Button x:Name="ExportLog" Content="{DynamicResource Loc_s098}" Padding="8,4" Margin="6,3"/><Button x:Name="LatestLog" Content="{DynamicResource Loc_s083}" Padding="8,4" Visibility="Collapsed"/></WrapPanel>
+    </Grid>
+   </Grid>
+  </Grid>
+  <TextBlock x:Name="Footer" Grid.Row="3" Text="{DynamicResource Loc_s100}" Style="{StaticResource Muted}" FontSize="11" Margin="2,12,0,0"/>
  </Grid>
 </Window>

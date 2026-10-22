@@ -1,0 +1,293 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources language="zh-CN">
+  <text key="s000">
+
+1. 解码器文件：</text>
+  <text key="s001">
+
+VRS 在线但飞机为 0 不代表连接失败。地图底图是否加载与本机数据接口分别判断。</text>
+  <text key="s002">
+   配置文件：</text>
+  <text key="s003">
+2. 接收进程：</text>
+  <text key="s004">
+3. Beast 数据：</text>
+  <text key="s005">
+4. VRS 配置：</text>
+  <text key="s006">
+5. 网页接口：</text>
+  <text key="s007">
+6. 接收机来源：</text>
+  <text key="s008">
+多个结果请在下拉框选择；点击“保存检测结果”保存。</text>
+  <text key="s009">
+已到扫描上限，可选择更具体的文件夹。</text>
+  <text key="s010">
+已检查 </text>
+  <text key="s011">  ·  本机数据 127.0.0.1:</text>
+  <text key="s012"> 个
+</text>
+  <text key="s013"> 个 · VRS </text>
+  <text key="s014"> 个。</text>
+  <text key="s015"> 个目录…</text>
+  <text key="s016"> 个目录，跳过 </text>
+  <text key="s017"> 已被占用，请修改端口后重新联动 VRS。</text>
+  <text key="s018"> 秒</text>
+  <text key="s019">1–60，默认 4；越高通常需要更多 CPU。</text>
+  <text key="s020">24 MHz 仅适用于支持该模式的 Airspy R2，确认继续？</text>
+  <text key="s021">Airspy R0 / R2 / Mini
+修改接收参数前，请先停止接收。</text>
+  <text key="s022">Airspy 控制台</text>
+  <text key="s023">Beast · 含信号电平</text>
+  <text key="s024">Beast 实时接收 · 最近 60 秒内的飞机</text>
+  <text key="s025">Beast 数据已连接</text>
+  <text key="s026">Beast 数据连接已建立</text>
+  <text key="s027">Beast 数据连接已断开</text>
+  <text key="s028">USB 位打包</text>
+  <text key="s029">VRS 启动中</text>
+  <text key="s030">VRS 在线</text>
+  <text key="s031">VRS 在线，但返回了其他接收机。</text>
+  <text key="s032">VRS 尚未检查</text>
+  <text key="s033">VRS 尚未退出，请检查其窗口是否需要操作；面板不会强制终止 VRS。</text>
+  <text key="s034">VRS 已配置为 Beast / 127.0.0.1:</text>
+  <text key="s035">VRS 接口</text>
+  <text key="s036">VRS 接收机来源</text>
+  <text key="s037">VRS 无法正常关闭，请在 VRS 中退出后重试。</text>
+  <text key="s038">VRS 未连接</text>
+  <text key="s039">VRS 正在启动。网页状态会自动更新。</text>
+  <text key="s040">VRS 状态待确认</text>
+  <text key="s041">VRS 状态详情</text>
+  <text key="s042">VRS 网页数据正常</text>
+  <text key="s043">VRS 网页检测失败：</text>
+  <text key="s044">VRS 配置文件格式异常，未修改。</text>
+  <text key="s045">VRS 飞机</text>
+  <text key="s046">auto 自动调节增益。手动增益为 0–21；过高可能使强信号失真，并不总能收到更多飞机。</text>
+  <text key="s047">auto 自动调节；0–21 为手动增益。数值越大不代表效果一定越好。</text>
+  <text key="s048">‹ 返回</text>
+  <text key="s049">● Beast 已连接 · 正在收到报文</text>
+  <text key="s050">● Beast 已连接 · 等待报文</text>
+  <text key="s051">。检查设备、USB、驱动或占用。</text>
+  <text key="s052">。请检查 VRS 网页服务、端口和地图地址。</text>
+  <text key="s053">万</text>
+  <text key="s054">不匹配：预期 </text>
+  <text key="s055">仅错误</text>
+  <text key="s056">保存检测结果</text>
+  <text key="s057">保存配置</text>
+  <text key="s058">信号表来自已解码报文的相对电平，不是频谱仪或噪声底测量。飞机按 DF11/17 的 ICAO 去重，60 秒未收到消息后移出列表。</text>
+  <text key="s059">信息</text>
+  <text key="s060">停止中</text>
+  <text key="s061">停止本面板启动的 Airspy 解码器并正常关闭本机 VRS；地图网页保留打开。</text>
+  <text key="s062">全部停止</text>
+  <text key="s063">全部停止：已停止面板解码器并关闭 VRS，地图网页保留打开。</text>
+  <text key="s064">全部级别</text>
+  <text key="s065">关键事件</text>
+  <text key="s066">关闭 AirspyPanel</text>
+  <text key="s067">关闭窗口后要怎么做？</text>
+  <text key="s068">关闭窗口时</text>
+  <text key="s069">匹配（ID </text>
+  <text key="s070">原始输出</text>
+  <text key="s071">原配置备份：</text>
+  <text key="s072">参数说明</text>
+  <text key="s073">发现多个 VRS，选择要使用的版本。</text>
+  <text key="s074">发现多个解码器，选择要使用的版本。</text>
+  <text key="s075">取消</text>
+  <text key="s076">取消查找</text>
+  <text key="s077">可在设置的“外观与关闭行为”中修改。</text>
+  <text key="s078">后台正在确认服务状态。</text>
+  <text key="s079">启动命令</text>
+  <text key="s080">启动命令：</text>
+  <text key="s081">呼号</text>
+  <text key="s082">呼号: </text>
+  <text key="s083">回到最新</text>
+  <text key="s084">在线 · 来源不符</text>
+  <text key="s085">在线 · 配置待验证</text>
+  <text key="s086">地图与连接</text>
+  <text key="s087">地图地址</text>
+  <text key="s088">地图地址待验证（服务可能未启动）</text>
+  <text key="s089">地图地址无效。</text>
+  <text key="s090">地图接口已验证</text>
+  <text key="s091">地址返回的不是 VRS 飞机数据，请检查地图地址。</text>
+  <text key="s092">增益必须是 auto 或 0–21。</text>
+  <text key="s093">备份配置，设置本机 Beast 接收机并启动 VRS；若已运行，会先正常关闭再启动。</text>
+  <text key="s094">复制详情</text>
+  <text key="s095">外观与关闭行为</text>
+  <text key="s096">外观主题</text>
+  <text key="s097">外观可在顶部选择浅色、深色或跟随系统。</text>
+  <text key="s098">导出</text>
+  <text key="s099">将样本打包传输的 -p 选项。它是 USB 数据传输设置，不是天线 Bias-Tee 供电；不确定时保持默认关闭。</text>
+  <text key="s100">就绪 · Airspy R0 / R2 / Mini</text>
+  <text key="s101">展开</text>
+  <text key="s102">峰值电平</text>
+  <text key="s103">已保存来源（配置未验证）</text>
+  <text key="s104">已停止</text>
+  <text key="s105">已停止接收并释放设备。</text>
+  <text key="s106">已打开地图地址：</text>
+  <text key="s107">已找到</text>
+  <text key="s108">已有 ADS-B SPY 在运行。请先关闭原解码窗口，避免同一接收机被重复占用。</text>
+  <text key="s109">已检查 </text>
+  <text key="s110">已结束</text>
+  <text key="s111">已连接，暂无报文；检查天线和接收条件</text>
+  <text key="s112">已连接，正在接收报文</text>
+  <text key="s113">平均电平</text>
+  <text key="s114">开始接收</text>
+  <text key="s115">待启动</text>
+  <text key="s116">恢复推荐接收参数</text>
+  <text key="s117">所选接收机不在本地配置中，配置未验证。</text>
+  <text key="s118">打开地图</text>
+  <text key="s119">打开飞机地图</text>
+  <text key="s120">托盘不可用，窗口保持打开。</text>
+  <text key="s121">找到多个匹配接收机，请在设置中选择来源。</text>
+  <text key="s122">报文</text>
+  <text key="s123">报文 / 秒</text>
+  <text key="s124">报文: </text>
+  <text key="s125">接口未通过，暂不能验证</text>
+  <text key="s126">接口返回了 AdGuard 页面，请检查网页过滤软件对本机 VRS 和 AirspyPanel 的规则。</text>
+  <text key="s127">接口返回的不是有效 JSON，请确认地图地址指向 VRS，而非其他网页。</text>
+  <text key="s128">接好设备后，点击“开始接收”。参数可在设置页调整。</text>
+  <text key="s129">接收参数</text>
+  <text key="s130">接收参数与程序设置</text>
+  <text key="s131">接收参数帮助</text>
+  <text key="s132">接收增益</text>
+  <text key="s133">接收失败</text>
+  <text key="s134">接收控制</text>
+  <text key="s135">接收机</text>
+  <text key="s136">接收机正在启动</text>
+  <text key="s137">接收机配置不匹配，请配置并启动 VRS。</text>
+  <text key="s138">接收机配置匹配：127.0.0.1:</text>
+  <text key="s139">控制台启动异常：</text>
+  <text key="s140">控制台已就绪。飞机数量与双电平表直接来自真实 Beast 报文。</text>
+  <text key="s141">推荐参数已填入；点击“保存配置”保存。路径与地图地址未更改。</text>
+  <text key="s142">收起到托盘</text>
+  <text key="s143">收起到托盘后继续接收。退出程序将停止解码器并正常关闭 VRS。</text>
+  <text key="s144">收起到托盘失败：</text>
+  <text key="s145">收起到托盘，继续接收</text>
+  <text key="s146">数据连接正常，尚未识别到飞机
+请检查天线与接收条件</text>
+  <text key="s147">数据连接端口</text>
+  <text key="s148">数据连接端口：面板与 VRS 需一致，默认 30005，格式始终为 Beast。
+
+接收增益：auto 自动调节；手动 0–21，过高可能让强信号失真。
+
+采样模式：12/20/24 MHz 是采样选项，不是 1090 MHz 接收频率。24 MHz 仅用于支持该模式的 R2；单机不会因此获得 MLAT 定位。
+
+解码过滤强度：默认 4，范围 1–60，更高通常增加 CPU 开销。
+
+USB 位打包：对应 -p，改变样本传输方式；不是天线供电。不确定时保持默认。</text>
+  <text key="s149">文本日志|*.txt</text>
+  <text key="s150">显示面板</text>
+  <text key="s151">暂无数据</text>
+  <text key="s152">暂无飞机
+接入接收机并点击“开始接收”</text>
+  <text key="s153">最近 3 秒收到的 Beast 报文中最高相对电平；无报文时清空。</text>
+  <text key="s154">最近 3 秒收到的 Beast 报文电平算术平均，0–255 映射到 0–100%；不是校准的 dBm，也不是噪声底。</text>
+  <text key="s155">最近 60 秒有 DF11 或 DF17 显式 ICAO 报文的去重飞机数。与 VRS 的超时和统计范围可能不同。</text>
+  <text key="s156">未启动，请点击“开始接收”</text>
+  <text key="s157">未找到 VirtualRadar.exe，请在左侧设置 VRS 程序路径。</text>
+  <text key="s158">未找到 airspy_adsb.exe，请在左侧设置程序路径。</text>
+  <text key="s159">未找到匹配接收端点，配置未验证。</text>
+  <text key="s160">未找到，请自动查找或选择程序</text>
+  <text key="s161">未指定来源，实际 ID </text>
+  <text key="s162">未知的数据格式。</text>
+  <text key="s163">未知的采样设置。</text>
+  <text key="s164">未连接</text>
+  <text key="s165">本地配置文件不存在，配置未验证；网页状态单独检查。</text>
+  <text key="s166">本机 Beast 连接端口，1024–65535。修改后需重新同步 VRS 接收机配置。</text>
+  <text key="s167">本次报文总数</text>
+  <text key="s168">查找失败：</text>
+  <text key="s169">查找已取消。未保存配置。</text>
+  <text key="s170">查看 VRS 状态详情</text>
+  <text key="s171">检测完成 · VRS 在线</text>
+  <text key="s172">检测时间：</text>
+  <text key="s173">正在接收</text>
+  <text key="s174">正在查找本机程序…</text>
+  <text key="s175">每次询问</text>
+  <text key="s176">浅色</text>
+  <text key="s177">深色</text>
+  <text key="s178">清空</text>
+  <text key="s179">电平</text>
+  <text key="s180">确定</text>
+  <text key="s181">程序与地图</text>
+  <text key="s182">程序查找完成，正在验证地图接口…</text>
+  <text key="s183">程序路径与地图地址</text>
+  <text key="s184">端口 </text>
+  <text key="s185">端口必须在 1024 至 65535 之间。</text>
+  <text key="s186">端口未监听，请先启动接收</text>
+  <text key="s187">端口正在监听，但面板尚未连接</text>
+  <text key="s188">等待接收数据</text>
+  <text key="s189">等待检查 VRS。</text>
+  <text key="s190">等待解码器 / 自动重连</text>
+  <text key="s191">简易模式</text>
+  <text key="s192">自动</text>
+  <text key="s193">自动匹配</text>
+  <text key="s194">自动匹配唯一接收端点；多个匹配项时选择来源。</text>
+  <text key="s195">自动查找常见安装位置，不遍历整块硬盘。</text>
+  <text key="s196">自动查找本机配置</text>
+  <text key="s197">自动：不传 -m 参数。24 MHz 仅适用于支持该模式的 R2。此项不是 1090 MHz 接收频率，也不表示单机能直接获得 MLAT 定位。</text>
+  <text key="s198">解码器 </text>
+  <text key="s199">解码器 exe</text>
+  <text key="s200">解码器仍在运行或退出中。</text>
+  <text key="s201">解码器启动失败，请查看运行日志。</text>
+  <text key="s202">解码器文件名必须为 airspy_adsb.exe。</text>
+  <text key="s203">解码器未能启动。</text>
+  <text key="s204">解码器退出，返回码 </text>
+  <text key="s205">解码器：</text>
+  <text key="s206">解码过滤强度</text>
+  <text key="s207">警告</text>
+  <text key="s208">警告与错误</text>
+  <text key="s209">让天空，保持在线。</text>
+  <text key="s210">记住选择，不再提示</text>
+  <text key="s211">设备模式</text>
+  <text key="s212">设置</text>
+  <text key="s213">请确认接入 Airspy R0 / R2 / Mini 与 1090 MHz 天线。</text>
+  <text key="s214">请输入有效的数据端口。</text>
+  <text key="s215">请输入有效的过滤强度。</text>
+  <text key="s216">请选择 airspy_adsb.exe。</text>
+  <text key="s217">读取数据</text>
+  <text key="s218">读取输出结束：</text>
+  <text key="s219">读取配置失败：</text>
+  <text key="s220">超时</text>
+  <text key="s221">距上次</text>
+  <text key="s222">距上次: </text>
+  <text key="s223">跟随系统</text>
+  <text key="s224">路径与地图地址已保存。</text>
+  <text key="s225">输出格式</text>
+  <text key="s226">过滤强度必须在 1–60 之间。</text>
+  <text key="s227">运行 </text>
+  <text key="s228">运行中（PID </text>
+  <text key="s229">运行日志</text>
+  <text key="s230">连接</text>
+  <text key="s231">连接数据端口 </text>
+  <text key="s232">连接被拒绝或服务未监听</text>
+  <text key="s233">退出程序</text>
+  <text key="s234">退出程序，停止解码器和 VRS</text>
+  <text key="s235">选择 VRS</text>
+  <text key="s236">选择包含 Airspy 或 VRS 的文件夹</text>
+  <text key="s237">选择文件夹</text>
+  <text key="s238">选择解码器</text>
+  <text key="s239">遥测客户端正在连接本机 Beast 端口 </text>
+  <text key="s240">配置已保存。</text>
+  <text key="s241">配置并启动 VRS</text>
+  <text key="s242">配置读取失败：</text>
+  <text key="s243">采样模式
+（MHz）</text>
+  <text key="s244">错误</text>
+  <text key="s245">附近飞机 · 60 秒内</text>
+  <text key="s246">面板与 VRS 必须使用相同的端口和 Beast 格式；默认 30005，端口号不决定数据格式。</text>
+  <text key="s247">面板仍在启动，请稍后再次打开。</text>
+  <text key="s248">面板设置</text>
+  <text key="s249">飞机 · 60 秒内</text>
+  <text key="s250">飞机列表</text>
+  <text key="s251">高度</text>
+  <text key="s252">高级接收设置</text>
+  <text key="s253">，实际 </text>
+  <text key="s254">，接收机 Airspy Panel。</text>
+  <text key="s255">；可在设置页选择接收机</text>
+  <text key="s256">；请核对设置页的来源与 VRS 当前配置</text>
+  <text key="Language">语言</text>
+  <text key="Welcome">首次使用</text>
+  <text key="WelcomeHelp">面板需要另行安装 Airspy 解码器和 VRS。打开官方下载页，安装后检测程序并保存路径。</text>
+  <text key="AirspyDownload">Airspy 官方下载</text>
+  <text key="VrsDownload">VRS 官方下载</text>
+  <text key="ExitFailure">VRS 未能退出。重试：选择“是”；仅退出面板、保留 VRS：选择“否”；取消：返回面板。</text>
+  <text key="Demo">演示数据 · 无真实接收记录</text>
+</resources>

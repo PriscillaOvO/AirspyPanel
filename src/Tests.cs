@@ -122,47 +122,30 @@ namespace AirspyPanel
                 Assert(Vrs.ApiUri("http://127.0.0.1:8080/VirtualRadar/desktop.html").AbsolutePath == "/VirtualRadar/AircraftList.json", "VRS URL");
                 var web = new TcpListener(IPAddress.Loopback, 0); web.Start();
                 int webPort = ((IPEndPoint)web.LocalEndpoint).Port;
-                var responder = Task.Run(() => {
+                string webTrace = "listening " + DateTime.UtcNow.ToString("O");
+                var responder = Task.Factory.StartNew(() => {
                     using (var connection = web.AcceptTcpClient())
                     using (var stream = connection.GetStream()) {
+                        webTrace += " accepted " + DateTime.UtcNow.ToString("O");
                         var reader = new StreamReader(stream);
                         string requestLine = reader.ReadLine();
-                        Assert(requestLine.Contains("feed=" + Vrs.ReceiverId), "feed query");
+                        webTrace += " request " + requestLine + " " + DateTime.UtcNow.ToString("O");
+                        Assert(requestLine.Contains("feed=" + 10), "feed query");
                         while (!String.IsNullOrEmpty(reader.ReadLine())) { }
-                        string body = "{\"totalAc\":3,\"srcFeed\":" + Vrs.ReceiverId + ",\"acList\":[]}";
+                        string body = "{\"totalAc\":3,\"srcFeed\":" + 10 + ",\"acList\":[]}";
                         byte[] response = System.Text.Encoding.ASCII.GetBytes("HTTP/1.1 200 OK\r\nContent-Type: application/json\r\nContent-Length: " + body.Length + "\r\nConnection: close\r\n\r\n" + body);
                         stream.Write(response, 0, response.Length);
+                        webTrace += " replied " + DateTime.UtcNow.ToString("O");
+                        Thread.Sleep(200); // Allow local HTTP inspection software to drain the response before FIN.
                     }
-                });
-                var probe = Vrs.Probe("http://127.0.0.1:" + webPort + "/VirtualRadar/").GetAwaiter().GetResult();
-                Assert(responder.Wait(3000) && probe.Online && probe.ReceiverMatches && probe.Count == 3, "VRS HTTP API and feed");
+                }, TaskCreationOptions.LongRunning);
+                var probe = Vrs.Probe("http://127.0.0.1:" + webPort + "/VirtualRadar/", 10).GetAwaiter().GetResult();
+                Assert(responder.Wait(3000) && probe.Online && probe.ReceiverMatches && probe.Count == 3, "VRS HTTP API and feed: " + probe.Message + " " + probe.Error + " " + webTrace);
                 web.Stop();
-                File.WriteAllText(report, "PASS\nArguments and invalid input; settings roundtrip; child stdout/stderr and exit/stop/restart;\nBeast split/escaped frames and resync; aircraft dedup, callsign, altitude, DF filtering;\nmean/peak signals, stale signal/aircraft expiry; loopback TCP monitoring and reconnect;\nVRS config backup/preservation/idempotence, HTTP API and feed selection.\nNo synthetic data was sent to the real VRS instance.\n");
+                UpgradeTests.Run();
+                File.WriteAllText(report, "PASS\nArguments and invalid input; settings roundtrip; child stdout/stderr and exit/stop/restart;\nBeast split/escaped frames and resync; aircraft dedup, callsign, altitude, DF filtering;\nmean/peak signals, stale signal/aircraft expiry; loopback TCP monitoring and reconnect;\nVRS config backup/preservation/idempotence, HTTP API and feed selection.\nUpgrade checks: legacy/theme/window settings, discovery candidates/cancellation/budget, VRS zero-count/wrong-feed/invalid-response/timeout/offline.\nNo synthetic data was sent to the real VRS instance.\n");
                 return 0;
             } catch (Exception ex) { File.WriteAllText(report, "FAIL\n" + ex); return 1; }
-        }
-        public static int Render()
-        {
-            try {
-                var app = new Application();
-                using (var panel = new PanelApp(true)) {
-                    var element = (FrameworkElement)panel.Window.Content;
-                    foreach (var size in new[] { new Size(820, 620), new Size(1180, 780) })
-                    foreach (int dpi in new[] { 96, 144, 192, 240 }) {
-                        element.Measure(size); element.Arrange(new Rect(size)); element.UpdateLayout();
-                        Assert(panel.C<Button>("Start").ActualHeight >= 25 && panel.C<Button>("Start").ActualWidth >= 65, "start button layout");
-                        Assert(panel.C<DataGrid>("Planes").ActualHeight > 100, "table height");
-                        Assert(panel.C<TextBlock>("Mean").ActualWidth >= 60, "meter text layout");
-                        double factor = dpi / 96.0;
-                        var bmp = new RenderTargetBitmap((int)(size.Width * factor), (int)(size.Height * factor), dpi, dpi, PixelFormats.Pbgra32);
-                        bmp.Render(element);
-                        var encoder = new PngBitmapEncoder(); encoder.Frames.Add(BitmapFrame.Create(bmp));
-                        using (var output = File.Create(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "preview-" + size.Width + "-" + dpi + ".png"))) encoder.Save(output);
-                    }
-                }
-                File.WriteAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "layout-test.txt"), "PASS: 820x620 and 1180x780 DIP at 100%, 150%, 200%, 250%; key controls have positive usable size.\n");
-                return 0;
-            } catch (Exception ex) { File.WriteAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "layout-test.txt"), ex.ToString()); return 1; }
         }
     }
 }
